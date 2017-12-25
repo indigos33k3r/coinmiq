@@ -1,20 +1,24 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
-  height: 100px;
+  height: 80px;
 }
 
 .App-header {
   background-color: #000;
-  height: 150px;
-  padding: 20px;
   color: white;
 }
 
 .App-intro {
   font-size: medium;
+  padding:  1cm 1cm 1cm 1cm;
+}
+
+.App-form {
+  font-size: medium;
+  padding:  0cm 0cm 1cm 1cm;
 }
 
 body {
