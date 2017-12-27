@@ -131,9 +131,9 @@ class App extends Component {
               to <strong>On</strong> to start mining.
             </p>
             <p>
-              The widget can be configured to mine for a number of hashes or a
-              predetermined amount of time. In this demonstration, we have set
-              the target hashes to 500K and configured the payout to the&nbsp;
+              The widget can be configured to mine for a number of hashes. In
+              this demonstration, we have set the target hashes to 500K and
+              configured the payout to the&nbsp;
               <a
                 href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
                 target="_blank"
@@ -147,7 +147,11 @@ class App extends Component {
               number of threads by clicking the (+) and (-) buttons. Higher
               threads will be more CPU-intensive.
             </p>
-            <CoinmiqMiner />
+            <CoinmiqMiner
+              address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
+              targetHash="500000"
+              targetTime="60"
+            />
           </Jumbotron>
 
           <div
@@ -192,50 +196,43 @@ class App extends Component {
               </CardText>
               <CardText>
                 Why not Bitcoin, Ethereum or any other high-profile
-                crypto-currencies? We explain our reasons below.<br />
+                crypto-currencies? We explain our reasons below.
+              </CardText>
+              <CardText>
+                1. The value of Nimiq is quite high, and it can be mined with
+                similar efficiency by high- and low-end hardwares alike on the
+                CPU. This means, a monster rig with a top-end GPU is not likely
+                to outperform a mobile phone by a factor of 10000x. From our
+                experience,{' '}
+                <strong>
+                  we expect to see only 10-20x hashrate difference between
+                  really high- and low-end hardwares
+                </strong>. Mining other cryptocurrencies (especially those that
+                are not ASIC-resistant, like Bitcoin) with CPU makes no
+                financial sense, even on a large distributed scale.
                 <br />
-                <ul>
-                  <li>
-                    The value of Nimiq is quite high, and it can be mined with
-                    similar efficiency by high- and low-end hardwares alike on
-                    the CPU. This means, a monster rig with a top-end GPU is not
-                    likely to outperform a mobile phone by a factor of 10000x.
-                    From our experience,{' '}
-                    <strong>
-                      we expect to see only 10-20x hashrate difference between
-                      really high- and low-end hardwares
-                    </strong>. Mining other cryptocurrencies (especially those
-                    that are not ASIC-resistant, like Bitcoin) with CPU makes no
-                    financial sense, even on a large distributed scale.<br />
-                    <br />
-                  </li>
-                  <li>
-                    Being a blockchain native to the Web,{' '}
-                    <strong>
-                      Nimiq offers an easy way to access its entire coin
-                      ecosystem
-                    </strong>, including having a user-friendly wallet
-                    accessible from the browser, lighting-fast payment system to
-                    withdraw your payout instantly with a low-fee and (planned)
-                    p2p exchange to convert your earning to the local currency.<br />
-                    <br />
-                  </li>
-                  <li>
-                    Since it is being built from ground-up to mine on an
-                    entirely new blockchain,&nbsp;
-                    <strong>
-                      our mining widget has more technological advantages
-                    </strong>{' '}
-                    compared to other alternatives – in speed and performance.
-                    Many malwares that covertly perform crypto-mining prefer
-                    Monero due to its anonimity, but since we focus on consented
-                    browser mining (by being transparent and asking the user
-                    before using their resources), we like the ease-of-payment
-                    and simplicity that Nimiq offers.
-                    <br />
-                    <br />
-                  </li>
-                </ul>
+              </CardText>
+              <CardText>
+                2. Being a blockchain native to the Web,{' '}
+                <strong>
+                  Nimiq offers an easy way to access its entire coin ecosystem
+                </strong>, including having a user-friendly wallet accessible
+                from the browser, lighting-fast payment system to withdraw your
+                payout instantly with a low-fee and (planned) p2p exchange to
+                convert your earning to the local currency.
+              </CardText>
+              <CardText>
+                3. Since it is being built from ground-up to mine on an entirely
+                new blockchain,&nbsp;
+                <strong>
+                  our mining widget has more technological advantages
+                </strong>{' '}
+                compared to other alternatives – in speed and performance. Many
+                malwares that covertly perform crypto-mining prefer Monero due
+                to its anonimity, but since we focus on consented browser mining
+                (by being transparent and asking the user before using their
+                resources), we like the ease-of-payment and simplicity that
+                Nimiq offers.
               </CardText>
             </CardBody>
           </Card>
@@ -246,8 +243,8 @@ class App extends Component {
               Our mining widget is powered by{' '}
               <a href="http://www.nimiq.com" target="_blank">
                 Nimiq
-              </a>, a Web-based blockchain technology that serves as the
-              underlying decentralised payment network.
+              </a>, a Web-based blockchain technology that provides a fast
+              decentralised payment network.
             </p>
             <CardGroup>
               <Card>

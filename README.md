@@ -1,6 +1,6 @@
 # coinmiq
 
-Coinmiq is a crypto miner for your website. Powered by [Nimiq](http://www.nimiq.com), a blockchain native to the Web.
+Coinmiq is a cryptocurrency miner for your website. Powered by [Nimiq](http://www.nimiq.com), a blockchain native to the Web.
 
 <img src="images.png" alt="alt text" width="50%">
 <hr/>

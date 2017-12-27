@@ -92,8 +92,8 @@ class CoinmiqMiner extends React.Component {
       progressPercent: 0,
 
       // should be input parameters
-      address: 'NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM',
-      targetHash: 500000
+      address: props.address,
+      targetHash: props.targetHash
     };
 
     this.increase = this.increase.bind(this);
