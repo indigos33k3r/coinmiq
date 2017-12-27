@@ -1,111 +1,33 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-var FontAwesome = require('react-fontawesome');
 
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Container,
-  Row,
-  Col,
   Jumbotron,
   Card,
   CardImg,
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button,
-  CardDeck,
   CardGroup
 } from 'reactstrap';
 
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import Dialog from 'material-ui/Dialog';
-import Divider from 'material-ui/Divider';
-
-import { deepOrange500 } from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-import MyAwesomeReactComponent from './MyAwesomeReactComponent';
+import MyNavBar from './SiteElements';
 import './App.css';
 
-import logo from './logo.png';
-import logo_inverse_small from './logo_word_inverse_small.png';
 import browser from './browser.png';
 import hashrate from './hashrate.png';
 import wallet from './wallet.png';
 import CoinmiqMiner from './Coinmiq';
 
-const styles = {
-  container: {
-    textAlign: 'center',
-    paddingTop: 20,
-    paddingLeft: 20,
-    paddingRight: 20
-  }
-};
-
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500
-  }
-});
-
 class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleRequestClose = this.handleRequestClose.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-
-    this.state = {
-      open: false
-    };
-  }
-
-  handleRequestClose() {
-    this.setState({
-      open: false
-    });
-  }
-
-  handleClick() {
-    this.setState({
-      open: true
-    });
-  }
+  // constructor(props, context) {
+  //     super(props, context);
+  // }
 
   render() {
-    const standardActions = (
-      <FlatButton label="Ok" primary={true} onClick={this.handleRequestClose} />
-    );
-
     return (
       <div>
-        <Navbar color="dark" dark expand>
-          <NavbarToggler onClick={this.toggle} />
-          <NavbarBrand href="/">
-            <img src={logo_inverse_small} alt="My logo" />
-          </NavbarBrand>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">[Get Mining Widget]</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/components/">[Remote Mining]</NavLink>
-            </NavItem>
-          </Nav>
-        </Navbar>
-
+        <MyNavBar />
         <div className="App">
           <Jumbotron>
             <h1 className="display-3">Browser mining made easy</h1>

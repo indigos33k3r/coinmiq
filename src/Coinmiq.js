@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  Button
-} from 'reactstrap';
+import { Card, CardBody } from 'reactstrap';
 
 import logo from './logo_white_small.png';
 
 import ToggleButton from 'react-toggle-button';
 import { Progress } from 'react-sweet-progress';
 import 'react-sweet-progress/lib/style.css';
-import { Form, Text, TextArea } from 'react-form';
 
 class HashRate extends React.Component {
   render() {
