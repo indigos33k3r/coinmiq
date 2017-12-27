@@ -9,8 +9,11 @@ import './index.css';
 // https://github.com/facebookincubator/create-react-app/issues/1084
 // Copied from http:jquery-howto.blogspot.com/2009/09/get-url-parameters-values-with-jquery.html
 function getUrlVars() {
-  var vars = [], hash;
-  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  var vars = [],
+    hash;
+  var hashes = window.location.href
+    .slice(window.location.href.indexOf('?') + 1)
+    .split('&');
   for (var i = 0; i < hashes.length; i++) {
     hash = hashes[i].split('=');
     vars.push(hash[0]);
@@ -21,8 +24,8 @@ function getUrlVars() {
 
 var urlParams = getUrlVars();
 
-switch (urlParams["startPage"]) {
-  case "SecondApp":
+switch (urlParams['startPage']) {
+  case 'SecondApp':
     ReactDOM.render(<SecondApp />, document.getElementById('root'));
     break;
 
