@@ -6,7 +6,7 @@ import App from './App';
 import SecondApp from './SecondApp';
 import './index.css';
 
-
+// https://github.com/facebookincubator/create-react-app/issues/1084
 // Copied from http:jquery-howto.blogspot.com/2009/09/get-url-parameters-values-with-jquery.html
 function getUrlVars() {
   var vars = [], hash;
