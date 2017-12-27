@@ -13,5 +13,4 @@ Planned features:
 - Easy exchange of mined NIMs to Bitcoin/Ethereum/Monero via shapeshift, and perhaps to fiat currency as well.
 - CAPTCHA that requires proof-of-work to proceed.
 - Shortlinks that requires proof-of-work to proceed.
-- Special hodler features: deposit crypto earning to a vesting account that cannot be withdrawn until a period of time has passed.
 - Other ways to monetise your contents: proof-of-work protected blog posts, articles, etc.
