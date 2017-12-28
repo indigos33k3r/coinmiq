@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
+import './4.0.0-beta.2_materia_bootstrap.min.css';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import SecondApp from './SecondApp';
 
-import { Navbar, Nav, NavItem, NavLink } from 'reactstrap';
+import { Navbar, Nav, NavItem } from 'reactstrap';
 import logo_inverse_small from './images/logo_word_inverse_small.png';
 
 function MyHeader(props) {

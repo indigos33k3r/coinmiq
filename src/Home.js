@@ -68,7 +68,6 @@ class Home extends Component {
           <CoinmiqMiner
             address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
             targetHash="500000"
-            targetTime="60"
           />
         </Jumbotron>
 

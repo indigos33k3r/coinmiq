@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 
 import logo from './images/logo_white_small.png';
 
@@ -75,6 +74,13 @@ class CoinmiqMiner extends React.Component {
     this.updateMsg = this.updateMsg.bind(this);
     this.handleMiningButtonChange = this.handleMiningButtonChange.bind(this);
     this.initialise = this.initialise.bind(this);
+  }
+
+  componentWillMount() {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.nimiq.com/core/nimiq.js';
+    script.async = true;
+    document.body.appendChild(script);
   }
 
   handleMiningButtonChange(doMining) {
