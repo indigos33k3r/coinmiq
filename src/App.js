@@ -17,14 +17,10 @@ function MyHeader(props) {
       </Link>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          &nbsp;&nbsp;<Link to="/secondApp" className="MyLink">
-            Get Mining Widget
-          </Link>&nbsp;&nbsp;
+          &nbsp;&nbsp;<Link to="/secondApp">Get Mining Widget</Link>&nbsp;&nbsp;
         </NavItem>
         <NavItem>
-          &nbsp;&nbsp;<Link to="/secondApp" className="MyLink">
-            Remote Mining
-          </Link>
+          &nbsp;&nbsp;<Link to="/secondApp">Remote Mining</Link>
         </NavItem>
       </Nav>
     </Navbar>

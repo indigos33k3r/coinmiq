@@ -51,8 +51,8 @@ class Home extends Component {
           </p>
           <p>
             The widget can be configured to mine for a number of hashes. In this
-            demonstration, we have set the target hashes to 500K and configured
-            the payout to the{' '}
+            demonstration, we have set the target hashes to{' '}
+            <strong>500K</strong> and configured the payout to the{' '}
             <a
               href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
               target="_blank"

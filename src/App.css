@@ -48,10 +48,10 @@ body {
   background: url(./images/cream_dust.png) repeat 0 0;
 }
 
-a,
-a:hover,
-a:active,
-a:visited {
+.navbar a,
+.navbar a:hover,
+.navbar a:active,
+.navbar a:visited {
   color: white;
 }
 

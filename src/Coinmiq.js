@@ -7,61 +7,48 @@ import ToggleButton from 'react-toggle-button';
 import { Progress } from 'react-sweet-progress';
 import 'react-sweet-progress/lib/style.css';
 
-class HashRate extends React.Component {
-  render() {
-    let textStyle = {
-      fontSize: 48,
-      fontFamily: 'sans-serif',
-      color: '#333',
-      fontWeight: 'bold'
-    };
-
-    return <div style={textStyle}>{this.props.display} H/s</div>;
-  }
+function HashRateBox(props) {
+  const textStyle = {
+    fontSize: 48,
+    fontFamily: 'sans-serif',
+    color: '#333',
+    fontWeight: 'bold'
+  };
+  return <div style={textStyle}>{props.display} H/s</div>;
 }
 
-class MsgBox extends React.Component {
-  render() {
-    let textStyle = {
-      fontSize: 14,
-      fontFamily: 'sans-serif',
-      color: '#333',
-      fontWeight: 'bold'
-    };
-
-    return (
-      <div>
-        <div style={textStyle}>
-          <a href={'https://nimiq.watch/#' + this.props.display} />
-          {this.props.display}
-        </div>
-      </div>
-    );
-  }
+function MsgBox(props) {
+  const textStyle = {
+    fontSize: 14,
+    fontFamily: 'sans-serif',
+    color: '#333',
+    fontWeight: 'bold'
+  };
+  return (
+    <div>
+      <div style={textStyle}>{props.display}</div>
+    </div>
+  );
 }
 
-class ThreadCountBox extends React.Component {
-  render() {
-    let textStyle = {
-      fontSize: 14,
-      fontFamily: 'sans-serif',
-      color: '#333',
-      fontWeight: 'bold'
-    };
-
-    let ts = 'threads';
-    if (this.props.display === 1) {
-      ts = 'thread';
-    }
-    return (
-      <div>
-        <div style={textStyle}>
-          {this.props.total} Hashes, {this.props.time} s, {this.props.display}{' '}
-          {ts}
-        </div>
-      </div>
-    );
+function ThreadCountBox(props) {
+  const textStyle = {
+    fontSize: 14,
+    fontFamily: 'sans-serif',
+    color: '#333',
+    fontWeight: 'bold'
+  };
+  let ts = 'threads';
+  if (props.display === 1) {
+    ts = 'thread';
   }
+  return (
+    <div>
+      <div style={textStyle}>
+        {props.total} Hashes, {props.time} s, {props.display} {ts}
+      </div>
+    </div>
+  );
 }
 
 class CoinmiqMiner extends React.Component {
@@ -73,94 +60,72 @@ class CoinmiqMiner extends React.Component {
       // threadCount: Math.ceil(navigator.hardwareConcurrency / 2),
       threadCount: 1,
       doMining: false,
-      statusMsg: 'Loading.',
+      statusMsg: 'Ready.',
       miner: undefined,
-      buttonDisabled: true,
+      buttonDisabled: false,
       totalHashCount: 0,
       totalElapsed: 0,
       progressPercent: 0,
-
-      // should be input parameters
       address: props.address,
       targetHash: props.targetHash
     };
 
-    this.increase = this.increase.bind(this);
-    this.decrease = this.decrease.bind(this);
+    this.increaseThread = this.increaseThread.bind(this);
+    this.decreaseThread = this.decreaseThread.bind(this);
+    this.updateMsg = this.updateMsg.bind(this);
     this.handleMiningButtonChange = this.handleMiningButtonChange.bind(this);
+    this.initialise = this.initialise.bind(this);
   }
 
   handleMiningButtonChange(doMining) {
-    // let doMining = e.target.checked;
-    doMining = !doMining;
-    let miner = this.state.miner;
-    let address = this.state.address;
-    miner.on('start', () => _onMinerStarted());
-    miner.on('hashrate-changed', () => _onHashRateChanged());
-    miner.on('stop', () => _onMinerStopped());
+    const address = this.state.address;
 
-    let newMsg = '';
-    let currentComponent = this;
+    if (this.state.miner === undefined) {
+      console.log('Initialising nimiq engine.');
+      this.updateMsg('Connecting.');
 
-    function _onMinerStarted() {
-      currentComponent.setState({
-        hashRate: miner.hashrate
-      });
-    }
-
-    function _onHashRateChanged() {
-      let newHashRate = miner.hashrate;
-      let currentHashCount = currentComponent.state.totalHashCount;
-      let currentElapsed = currentComponent.state.totalElapsed;
-      let newHashCount =
-        currentHashCount +
-        miner._lastHashCounts[miner._lastHashCounts.length - 1];
-      let newElapsed =
-        currentElapsed +
-        parseInt(miner._lastElapsed[miner._lastElapsed.length - 1], 10);
-      let totalHashCount = parseInt(newHashCount, 10);
-      let progressPercent = parseInt(
-        totalHashCount / currentComponent.state.targetHash * 100,
-        10
-      );
-      let buttonDisabled = currentComponent.state.buttonDisabled;
-      if (progressPercent > 100) {
-        progressPercent = 100;
-        doMining = false;
-        // e.target.checked = false; // doesn't work
-        miner.stopWork();
-        buttonDisabled = true;
+      if (window.Nimiq === undefined) {
+        this.updateMsg('Internet connection is lost.');
+      } else {
+        this.setState({
+          doMining: true
+        });
+        window.Nimiq.init(this.initialise, function(code) {
+          switch (code) {
+            case window.Nimiq.ERR_WAIT:
+              this.updateMsg('Another Nimiq instance already running.');
+              break;
+            case window.Nimiq.ERR_UNSUPPORTED:
+              this.updateMsg('Browser not supported.');
+              break;
+            case window.Nimiq.Wallet.ERR_INVALID_WALLET_SEED:
+              this.updateMsg('Invalid wallet seed.');
+              break;
+            default:
+              this.updateMsg('Nimiq initialisation error.');
+              break;
+          }
+        });
       }
-      currentComponent.setState({
-        hashRate: newHashRate,
-        totalHashCount: totalHashCount,
-        progressPercent: progressPercent,
-        totalElapsed: newElapsed,
-        buttonDisabled: buttonDisabled
-      });
-    }
-
-    function _onMinerStopped() {
-      currentComponent.setState({
-        hashRate: 0
-      });
-    }
-
-    if (doMining) {
-      newMsg = address;
-      miner.startWork();
     } else {
-      newMsg = address;
-      miner.stopWork();
+      doMining = !doMining;
+      let newMsg = '';
+      if (doMining) {
+        newMsg = 'Mining to ' + address + '.';
+        this.state.miner.startWork();
+      } else {
+        newMsg = 'Stopped.';
+        this.state.miner.stopWork();
+      }
+
+      this.updateMsg(newMsg);
+      this.setState({
+        doMining: doMining
+      });
     }
-    newMsg = 'Mining to ' + newMsg + '.';
-    this.setState({
-      statusMsg: newMsg,
-      doMining: doMining
-    });
   }
 
-  increase(e) {
+  increaseThread(e) {
     let newThreadCount = this.state.threadCount;
     let miner = this.state.miner;
     if (newThreadCount < navigator.hardwareConcurrency) {
@@ -172,7 +137,7 @@ class CoinmiqMiner extends React.Component {
     miner.threads = newThreadCount;
   }
 
-  decrease(e) {
+  decreaseThread(e) {
     let newThreadCount = this.state.threadCount;
     let miner = this.state.miner;
     if (newThreadCount > 1) {
@@ -185,7 +150,7 @@ class CoinmiqMiner extends React.Component {
   }
 
   render() {
-    let backgroundStyle = {
+    const backgroundStyle = {
       borderStyle: 'solid',
       borderWidth: 1,
       borderRadius: 0,
@@ -200,7 +165,7 @@ class CoinmiqMiner extends React.Component {
       margin: 20
     };
 
-    let incDecStyle = {
+    const incDecStyle = {
       margin: 2,
       fontSize: '1em',
       width: 20,
@@ -232,8 +197,8 @@ class CoinmiqMiner extends React.Component {
             onToggle={this.handleMiningButtonChange}
           />
         </div>
-        <img src={logo} alt="My logo" />
-        <HashRate display={this.state.hashRate} />
+        <img src={logo} alt="Coinmiq" />
+        <HashRateBox display={this.state.hashRate} />
         <MsgBox display={this.state.statusMsg} />
         <Progress percent={this.state.progressPercent} />
         <ThreadCountBox
@@ -243,14 +208,14 @@ class CoinmiqMiner extends React.Component {
         />
         <div style={displayToggle}>
           <button
-            onClick={this.decrease}
+            onClick={this.decreaseThread}
             style={incDecStyle}
             disabled={this.state.buttonDisabled}
           >
             -
           </button>
           <button
-            onClick={this.increase}
+            onClick={this.increaseThread}
             style={incDecStyle}
             disabled={this.state.buttonDisabled}
           >
@@ -261,110 +226,126 @@ class CoinmiqMiner extends React.Component {
     );
   }
 
-  componentDidMount() {
+  updateMsg(newMsg) {
+    this.setState({
+      statusMsg: newMsg
+    });
+  }
+
+  initialise = async function() {
+    // $ is the Nimiq.Core instance
+    const $ = {};
     let currentComponent = this;
-    function updateMsg(newMsg) {
+
+    function _onConsensusEstablished() {
+      const address = $.wallet.address.toUserFriendlyAddress();
+      currentComponent.updateMsg('Mining to ' + address + '.');
       currentComponent.setState({
-        statusMsg: newMsg
+        miner: $.miner,
+        buttonDisabled: false,
+        address: address
       });
     }
 
-    async function initialise() {
-      // $ is the Nimiq.Core instance
-      const $ = {};
-      window.$ = $;
+    function _onConsensusLost() {
+      currentComponent.updateMsg('Consensus lost.');
+      currentComponent.setState({
+        buttonDisabled: true,
+        doMining: false
+      });
+      let miner = currentComponent.state.miner;
+      miner.stopWork();
+    }
 
-      function _onConsensusEstablished() {
-        // const height = $.blockchain.height;
-        const address = $.wallet.address.toUserFriendlyAddress();
-        updateMsg('Consensus established.');
-        currentComponent.setState({
-          miner: $.miner,
-          buttonDisabled: false,
-          address: address
-        });
-      }
+    function _onMinerStarted() {
+      currentComponent.setState({
+        hashRate: currentComponent.state.miner.hashrate
+      });
+    }
 
-      function _onConsensusLost() {
-        updateMsg('Consensus lost.');
-        currentComponent.setState({
-          buttonDisabled: true,
+    function _onHashRateChanged() {
+      let newHashRate = currentComponent.state.miner.hashrate;
+      let currentHashCount = currentComponent.state.totalHashCount;
+      let currentElapsed = currentComponent.state.totalElapsed;
+      let newHashCount =
+        currentHashCount +
+        currentComponent.state.miner._lastHashCounts[
+          currentComponent.state.miner._lastHashCounts.length - 1
+        ];
+      let newElapsed =
+        currentElapsed +
+        parseInt(
+          currentComponent.state.miner._lastElapsed[
+            currentComponent.state.miner._lastElapsed.length - 1
+          ],
+          10
+        );
+      let totalHashCount = parseInt(newHashCount, 10);
+      let progressPercent = parseInt(
+        totalHashCount / currentComponent.state.targetHash * 100,
+        10
+      );
+      let buttonDisabled = currentComponent.state.buttonDisabled;
+      if (progressPercent > 100) {
+        progressPercent = 100;
+        this.setState({
           doMining: false
         });
-        let miner = this.state.miner;
-        miner.stopWork();
+        // e.target.checked = false; // doesn't work
+        currentComponent.state.miner.stopWork();
+        buttonDisabled = true;
       }
-
-      function _onHeadChanged() {
-        const height = $.blockchain.height;
-        let newMsg = 'Now at height ' + height;
-        updateMsg(newMsg);
-      }
-
-      function _onPeersChanged() {
-        let newMsg = 'Now connected to ' + $.network.peerCount + ' peers.';
-        updateMsg(newMsg);
-      }
-
-      let newMsg = 'Establishing consensus.';
-      updateMsg(newMsg);
-
-      $.consensus = await window.Nimiq.Consensus.light();
-      $.blockchain = $.consensus.blockchain;
-      $.mempool = $.consensus.mempool;
-      $.network = $.consensus.network;
-
-      // $.wallet = await window.Nimiq.Wallet.getPersistent();
-      $.wallet = {
-        address: window.Nimiq.Address.fromUserFriendlyAddress(
-          currentComponent.state.address
-        )
-      };
-
-      let uuid = require('uuid');
-      let id = 'coinmiq-' + uuid.v4();
-      let extraData = window.Nimiq.BufferUtils.fromAscii(id);
-      console.log(id);
-
-      $.miner = new window.Nimiq.Miner(
-        $.blockchain,
-        $.mempool,
-        $.wallet.address,
-        extraData
-      );
-      $.miner.threads = 1;
-
-      $.consensus.on('established', () => _onConsensusEstablished());
-      $.consensus.on('lost', () => _onConsensusLost());
-      // $.blockchain.on('head-changed', () => _onHeadChanged());
-      // $.network.on('peers-changed', () => _onPeersChanged());
-
-      newMsg = 'Connecting.';
-      updateMsg(newMsg);
-      $.network.connect();
-    }
-
-    if (window.Nimiq === undefined) {
-      updateMsg('Internet connection is lost.');
-    } else {
-      window.Nimiq.init(initialise, function(code) {
-        switch (code) {
-          case window.Nimiq.ERR_WAIT:
-            updateMsg('Another Nimiq instance already running.');
-            break;
-          case window.Nimiq.ERR_UNSUPPORTED:
-            updateMsg('Browser not supported.');
-            break;
-          case window.Nimiq.Wallet.ERR_INVALID_WALLET_SEED:
-            updateMsg('Invalid wallet seed.');
-            break;
-          default:
-            updateMsg('Nimiq initialisation error.');
-            break;
-        }
+      currentComponent.setState({
+        hashRate: newHashRate,
+        totalHashCount: totalHashCount,
+        progressPercent: progressPercent,
+        totalElapsed: newElapsed,
+        buttonDisabled: buttonDisabled
       });
     }
-  }
+
+    function _onMinerStopped() {
+      currentComponent.setState({
+        hashRate: 0
+      });
+    }
+
+    $.consensus = await window.Nimiq.Consensus.light();
+    $.blockchain = $.consensus.blockchain;
+    $.mempool = $.consensus.mempool;
+    $.network = $.consensus.network;
+
+    $.wallet = {
+      address: window.Nimiq.Address.fromUserFriendlyAddress(this.state.address)
+    };
+
+    let uuid = require('uuid');
+    let id = 'coinmiq-' + uuid.v4();
+    let extraData = window.Nimiq.BufferUtils.fromAscii(id);
+    console.log(id);
+
+    $.miner = new window.Nimiq.Miner(
+      $.blockchain,
+      $.mempool,
+      $.wallet.address,
+      extraData
+    );
+    $.miner.threads = 1;
+
+    $.consensus.on('established', () => _onConsensusEstablished());
+    $.consensus.on('lost', () => _onConsensusLost());
+    $.network.connect();
+    this.updateMsg('Establishing consensus.');
+
+    this.setState({
+      miner: $.miner,
+      doMining: true
+    });
+    $.miner.startWork();
+    $.miner.on('start', () => _onMinerStarted());
+    $.miner.on('hashrate-changed', () => _onHashRateChanged());
+    $.miner.on('stop', () => _onMinerStopped());
+  };
 }
 
 export default CoinmiqMiner;
