@@ -45,7 +45,14 @@
 }
 
 body {
-  background: url(./cream_dust.png) repeat 0 0;
+  background: url(./images/cream_dust.png) repeat 0 0;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: white;
 }
 
 html {

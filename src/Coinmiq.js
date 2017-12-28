@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import { Card, CardBody } from 'reactstrap';
-
-import logo from './logo_white_small.png';
+import logo from './images/logo_white_small.png';
 
 import ToggleButton from 'react-toggle-button';
 import { Progress } from 'react-sweet-progress';
@@ -188,6 +186,12 @@ class CoinmiqMiner extends React.Component {
 
   render() {
     let backgroundStyle = {
+      borderStyle: 'solid',
+      borderWidth: 1,
+      borderRadius: 0,
+      padding: 10,
+      backgroundColor: '#fff',
+      borderColor: '#ccc',
       width: 300,
       height: 320,
       textAlign: 'center',
@@ -220,43 +224,39 @@ class CoinmiqMiner extends React.Component {
 
     return (
       <div style={backgroundStyle}>
-        <Card>
-          <CardBody>
-            <div style={displayToggle}>
-              <ToggleButton
-                value={this.state.doMining}
-                thumbStyle={borderRadiusStyle}
-                trackStyle={borderRadiusStyle}
-                onToggle={this.handleMiningButtonChange}
-              />
-            </div>
-            <img src={logo} alt="My logo" />
-            <HashRate display={this.state.hashRate} />
-            <MsgBox display={this.state.statusMsg} />
-            <Progress percent={this.state.progressPercent} />
-            <ThreadCountBox
-              display={this.state.threadCount}
-              total={this.state.totalHashCount}
-              time={this.state.totalElapsed}
-            />
-            <div style={displayToggle}>
-              <button
-                onClick={this.decrease}
-                style={incDecStyle}
-                disabled={this.state.buttonDisabled}
-              >
-                -
-              </button>
-              <button
-                onClick={this.increase}
-                style={incDecStyle}
-                disabled={this.state.buttonDisabled}
-              >
-                +
-              </button>
-            </div>
-          </CardBody>
-        </Card>
+        <div style={displayToggle}>
+          <ToggleButton
+            value={this.state.doMining}
+            thumbStyle={borderRadiusStyle}
+            trackStyle={borderRadiusStyle}
+            onToggle={this.handleMiningButtonChange}
+          />
+        </div>
+        <img src={logo} alt="My logo" />
+        <HashRate display={this.state.hashRate} />
+        <MsgBox display={this.state.statusMsg} />
+        <Progress percent={this.state.progressPercent} />
+        <ThreadCountBox
+          display={this.state.threadCount}
+          total={this.state.totalHashCount}
+          time={this.state.totalElapsed}
+        />
+        <div style={displayToggle}>
+          <button
+            onClick={this.decrease}
+            style={incDecStyle}
+            disabled={this.state.buttonDisabled}
+          >
+            -
+          </button>
+          <button
+            onClick={this.increase}
+            style={incDecStyle}
+            disabled={this.state.buttonDisabled}
+          >
+            +
+          </button>
+        </div>
       </div>
     );
   }
