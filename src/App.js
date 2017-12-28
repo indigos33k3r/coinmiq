@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import SecondApp from './SecondApp';
 
-import { Navbar, Nav, NavItem } from 'reactstrap';
+import { Navbar, Nav, NavItem, NavLink } from 'reactstrap';
 import logo_inverse_small from './images/logo_word_inverse_small.png';
 
 function MyHeader(props) {
@@ -20,7 +20,15 @@ function MyHeader(props) {
           &nbsp;&nbsp;<Link to="/secondApp">Get Mining Widget</Link>&nbsp;&nbsp;
         </NavItem>
         <NavItem>
-          &nbsp;&nbsp;<Link to="/secondApp">Remote Mining</Link>
+          &nbsp;&nbsp;<Link to="/secondApp">Remote Mining</Link>&nbsp;&nbsp;
+        </NavItem>
+        <NavItem>
+          &nbsp;&nbsp;<a
+            href="https://www.github.com/joewandy/coinmiq"
+            target="_blank"
+          >
+            Github
+          </a>
         </NavItem>
       </Nav>
     </Navbar>
