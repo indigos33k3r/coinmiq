@@ -8,7 +8,7 @@ Coinmiq is a cryptocurrency miner for your website. Powered by [Nimiq](http://ww
 Planned features:
 -----------------
 
-- [x] A HTML/Javascript widget to mine crypto (NIM) to any address that the user specifies. This has been published as a React component at http://www.github.com/joewandy/react-coinmiq-miner.
+- [x] A HTML/Javascript widget to mine crypto (NIM) to any address that the user specifies. This has been published as [a reusable React component](http://www.github.com/joewandy/react-coinmiq-miner) that can be installed via ```npm```.
 - [ ] Mining pool.
 - [ ] Dashboard to monitor earnings.
 - [ ] Withdrawal of mined coins to Bitcoin/Ethereum/Monero (via shapeshift).
