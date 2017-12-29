@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Jumbotron,
@@ -23,6 +24,10 @@ class Home extends Component {
   // constructor(props, context) {
   //     super(props, context);
   // }
+
+  componentDidMount(prevProps) {
+    window.scrollTo(0, 0);
+  }
 
   render() {
     return (
@@ -89,9 +94,11 @@ class Home extends Component {
           }}
         >
           <p className="lead">
-            <Button color="primary" size="lg">
-              START MINING NOW!
-            </Button>
+            <Link to="/getMiner">
+              <Button color="primary" size="lg">
+                START MINING NOW!
+              </Button>
+            </Link>
           </p>
         </div>
         <Card>

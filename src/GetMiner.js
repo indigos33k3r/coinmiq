@@ -9,6 +9,10 @@ class GetMiner extends Component {
   //     super();
   // }
 
+  componentDidMount(prevProps) {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const myString = `
     import React from 'react';
