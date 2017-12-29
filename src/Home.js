@@ -70,7 +70,7 @@ class Home extends Component {
             address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
             targetHash="10000"
             width="300px"
-            height="340px"
+            height="350px"
           />
           <p>
             <strong>Important:</strong>{' '}
