@@ -13,10 +13,11 @@ import {
 
 import './App.css';
 
+import CoinmiqMiner from 'react-coinmiq-miner';
+
 import browser from './images/browser.png';
 import hashrate from './images/hashrate.png';
 import wallet from './images/wallet.png';
-import CoinmiqMiner from './Coinmiq';
 
 class Home extends Component {
   // constructor(props, context) {
@@ -68,6 +69,8 @@ class Home extends Component {
           <CoinmiqMiner
             address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
             targetHash="500000"
+            width="300px"
+            height="350px"
           />
         </Jumbotron>
 
