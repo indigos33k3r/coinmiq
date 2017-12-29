@@ -51,40 +51,39 @@ class Home extends Component {
           <h4>Live Demo</h4>
           <p>
             Below shows a demonstration of our miner. Once consensus has been
-            established, a toggle button will appear to switch between mining
-            (On) or idle (Off) state. Switch it to On to start mining.
-            <strong>
+            established, a toggle button will appear on the top left corner.{' '}
+            <strong>Turn this On to start mining</strong>. Here we set the miner
+            to collect a total of 25K hashes and send the mining reward to the{' '}
+            <a
+              href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
+              target="_blank"
+            >
+              following wallet address
+            </a>. The miner uses only one thread, but you can increase this by
+            clicking the (+) button. Higher threads complete faster but use more
+            CPU resources.
+          </p>
+          <CoinmiqMiner
+            address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
+            targetHash="25000"
+            width="300px"
+            height="350px"
+          />
+          <p>
+            <strong>Important:</strong>{' '}
+            <em>
               You are connecting to the{' '}
               <a
                 href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
                 target="_blank"
               >
                 Nimiq Testnet (Luna)
-              </a>. Testnet mining does not create permanent coins. The balance
+              </a>. Testnet mining DOES NOT create permanent coins. The balance
               of your coins in the Testnet may be reset at any time until the
-              release of the Nimiq Mainnet (in Q1 2018). Note that mining on
+              release of the Nimiq Mainnet in Q1 2018. Note that mining on
               mobile devices drains your battery.
-            </strong>
+            </em>
           </p>
-          <p>
-            The miner can be configured to work for a number of hashes. In this
-            demonstration, we have set the target hashes to{' '}
-            <strong>500K</strong> and configured the payout to the{' '}
-            <a
-              href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
-              target="_blank"
-            >
-              following wallet address
-            </a>. By default, the miner uses only one thread, but you can adjust
-            the number of threads by clicking the (+) and (-) buttons. Higher
-            threads will be more CPU-intensive.
-          </p>
-          <CoinmiqMiner
-            address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
-            targetHash="500000"
-            width="300px"
-            height="350px"
-          />
         </Jumbotron>
 
         <div
@@ -96,7 +95,7 @@ class Home extends Component {
           <p className="lead">
             <Link to="/getMiner">
               <Button color="primary" size="lg">
-                START MINING NOW!
+                GET THE MINER!
               </Button>
             </Link>
           </p>
@@ -138,42 +137,37 @@ class Home extends Component {
             </CardTitle>{' '}
             <CardText>
               1. The value of Nimiq is quite high, and it can be mined with
-              similar efficiency on high- and low-end hardwares alike on the
-              CPU. This means, a monster rig with a top-end GPU is not likely to
-              outperform a mobile phone by a factor of 10000x. From our
-              experience,{' '}
+              similar efficiency on high- and low-end hardwares due to its
+              memory-bound Proof-of-Work algorithm. This means a monster rig
+              with a top-end GPU will not outperform a mobile phone by a factor
+              of 10000x. From experience,{' '}
               <strong>
-                we expect to see only 10-20x hashrate difference between high-
-                and low-end hardwares
-              </strong>. Mining other cryptocurrencies (especially those that
-              are not ASIC-resistant, like Bitcoin) with CPU makes no financial
-              sense, even on a large distributed scale.
+                we expect to see only up to 20x hashrate difference between
+                high- and low-end hardwares
+              </strong>. In contrast, mining non-ASIC cryptocurrencies (like
+              Bitcoin) with CPU makes no financial sense, even on a large
+              distributed scale.
               <br />
             </CardText>
             <CardText>
-              2. Being a blockchain native to the Web,{' '}
+              2. Being native to the Web,{' '}
               <strong>
                 Nimiq offers an easy way to access its entire coin ecosystem
-              </strong>, including having a user-friendly wallet accessible from
-              the browser, lighting-fast payment system to withdraw your payout
-              instantly with a low-fee and (planned) p2p exchange to convert
-              your earnings to the local currency.
+              </strong>. This includes a browser-based user-friendly wallet –
+              coupled to a lighting-fast payment system to withdraw your payout
+              instantly and planned peer-to-peer exchange to convert earnings to
+              local currency.
             </CardText>
             <CardText>
-              3. Since it is being built from ground-up to mine on an entirely
-              new blockchain native to the Web,{' '}
-              <strong>
-                our mining component has more technological advantages
-              </strong>{' '}
-              compared to{' '}
+              3. Operating on a blockchain optimised for the Web platform means{' '}
+              <strong>our miner gains technological advantages</strong> in speed
+              and performance compared to{' '}
               <a href="http://www.coinhive.com" target="_blank">
                 other alternatives
               </a>{' '}
-              – in speed and performance. Many malwares that covertly perform
-              crypto-mining prefer Monero due to its anonimity, but since we
-              focus on consented browser mining (by being transparent and asking
-              the user before using their resources), we like the
-              ease-of-payment and simplicity that Nimiq offers.
+              that mine privacy-focused coins like Monero and end up being
+              blocked by ad-blockers. We require consented browser mining by
+              being transparent and asking users before using their resources.
             </CardText>
           </CardBody>
         </Card>
@@ -183,7 +177,7 @@ class Home extends Component {
         <div className="CardGroup">
           <h1>Powered by the Nimiq Blockchain</h1>
           <p>
-            Our mining component is powered by{' '}
+            Our miner is powered by{' '}
             <a href="http://www.nimiq.com" target="_blank">
               Nimiq
             </a>, a Web-based blockchain technology that provides fast
@@ -198,9 +192,9 @@ class Home extends Component {
                 <CardTitle>Browser-first</CardTitle>
                 <CardText>
                   Built from ground-up to be native to the Web platform, there
-                  is nothing to install to use Nimiq. All functionalities of the
-                  decentralised payment network are accessible from the Web
-                  browser with synchronisation time in seconds.
+                  is nothing to install to use Nimiq. All functionalities are
+                  accessible from the browser with synchronisation time in
+                  seconds.
                 </CardText>
               </CardBody>
             </Card>
@@ -214,9 +208,9 @@ class Home extends Component {
               <CardBody>
                 <CardTitle>Friendly Mining</CardTitle>
                 <CardText>
-                  High degree of miner decentralization by using Argon2d as the
-                  memory-latency bound Proof-of-Work algorithm. This lets
-                  low-end devices, such as mobiles and laptops, to mine too.
+                  High degree of miner decentralization using Argon2d as the
+                  memory-latency bound Proof-of-Work algorithm. This means
+                  low-end devices, such as mobiles and laptops, can mine too.
                 </CardText>
               </CardBody>
             </Card>
@@ -227,8 +221,8 @@ class Home extends Component {
               <CardBody>
                 <CardTitle>Instant Transactions</CardTitle>
                 <CardText>
-                  Lightning network and atomic swaps for cross-chain
-                  compatibility and speedy payments.
+                  Off-chain transactions to guarantee near instant, nearly free
+                  transactions. payments.
                 </CardText>
               </CardBody>
             </Card>
