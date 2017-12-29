@@ -39,8 +39,8 @@ class Home extends Component {
           <p>
             We provide a JavaScript miner that you can embed into your site.
             There is nothing to install. Your users loads a page containing our
-            embeddable component from their browser, and they mine for an
-            ad-free experience or in exchange of contents on your site.
+            miner from their browser, and they mine for an ad-free experience or
+            in exchange of contents on your site.
           </p>
           <p>
             Our vision is to facilitate easy micro-transactions through the Web.
@@ -111,8 +111,7 @@ class Home extends Component {
               embedded in your website. Your users will mine Nimiq, a type of
               crypto-currency (<a href="#nimiq">explained here</a>) while they
               are browsing. By letting users pay you with their CPU power, our
-              mining component provides an excellent alternative to annoying
-              ads.
+              miner provides an excellent alternative to annoying ads.
             </CardText>
           </CardBody>
         </Card>
@@ -124,7 +123,7 @@ class Home extends Component {
             <CardText>
               Due to the nature of the blockchain technology that we use, mining
               is performed in a completely decentralised manner (there is no
-              central server). At the moment, the component only supports solo
+              central server). At the moment, the miner only supports solo
               mining in the Testnet, but we will implement pooled mining when it
               is released in Q1 2018.
             </CardText>

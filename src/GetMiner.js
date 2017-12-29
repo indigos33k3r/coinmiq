@@ -47,9 +47,8 @@ class GetMiner extends Component {
               in{' '}
               <a href="https://reactjs.org/" target="_blank">
                 React
-              </a>, a popular JavaScript library for building user interfaces.
-              It is often the preferred front-end library for building modern,
-              scalable Web application in JavaScript. To install the miner via{' '}
+              </a>, a popular JavaScript library for building user interfaces in
+              modern Web application. To install the miner via{' '}
               <a href="https://www.npmjs.com/" target="_blank">
                 Node Package Manager
               </a>{' '}
@@ -58,8 +57,8 @@ class GetMiner extends Component {
             </CardText>
             <CardText />
             <CardText>
-              Soon we will provide an embeddable JavaScript library for Web
-              sites not developed React, as well as a WordPress plug-in.
+              Soon we will provide a JavaScript library for Web sites not
+              developed React, as well as a WordPress plug-in.
             </CardText>
           </CardBody>
         </Card>
