@@ -50,10 +50,13 @@ class Home extends Component {
           </p>
           <h4>Live Demo</h4>
           <p>
-            Below shows a demonstration of our miner. Once consensus has been
-            established, a toggle button will appear on the top left corner.{' '}
-            <strong>Turn this On to start mining</strong>. Here we set the miner
-            to collect a total of 25K hashes and send the mining reward to the{' '}
+            Below shows a demonstration of our miner.{' '}
+            <strong>
+              Click the toggle button on the top left corner and wait until
+              consensus has been established
+            </strong>. Mining begins when you see the message "Mining to ...".
+            Here we set the miner to collect a total of 10K hashes and send the
+            mining reward to the{' '}
             <a
               href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
               target="_blank"
@@ -65,7 +68,7 @@ class Home extends Component {
           </p>
           <CoinmiqMiner
             address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
-            targetHash="25000"
+            targetHash="10000"
             width="300px"
             height="350px"
           />
