@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import './4.0.0-beta.2_materia_bootstrap.min.css';
+// import './4.0.0-beta.2_materia_bootstrap.min.css';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home';
-import SecondApp from './SecondApp';
+import GetMiner from './GetMiner';
 
 import { Navbar, Nav, NavItem } from 'reactstrap';
 import logo_inverse_small from './images/logo_word_inverse_small.png';
@@ -18,10 +18,7 @@ function MyHeader(props) {
       </Link>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          &nbsp;&nbsp;<Link to="/secondApp">Get Mining Widget</Link>&nbsp;&nbsp;
-        </NavItem>
-        <NavItem>
-          &nbsp;&nbsp;<Link to="/secondApp">Remote Mining</Link>&nbsp;&nbsp;
+          &nbsp;&nbsp;<Link to="/getMiner">Get Miner</Link>&nbsp;&nbsp;
         </NavItem>
         <NavItem>
           &nbsp;&nbsp;<a
@@ -61,7 +58,7 @@ class App extends Component {
       <Router>
         <div>
           <MyHeader />
-          <Route exact path="/secondApp" component={SecondApp} />
+          <Route exact path="/getMiner" component={GetMiner} />
           <Route exact path="/" component={Home} />
           <MyFooter />
         </div>

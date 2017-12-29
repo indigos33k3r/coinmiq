@@ -32,10 +32,10 @@ class Home extends Component {
           <h2>A cryptocurrency miner for your website.</h2>
           <hr className="my-2" />
           <p>
-            We provide a JavaScript mining widget that you can embed into your
-            site. There is nothing to install. Your users loads a page
-            containing our embeddable widget from their browser, and they mine
-            for an ad-free experience or in exchange of contents on your site.
+            We provide a JavaScript miner that you can embed into your site.
+            There is nothing to install. Your users loads a page containing our
+            embeddable component from their browser, and they mine for an
+            ad-free experience or in exchange of contents on your site.
           </p>
           <p>
             Our vision is to facilitate easy micro-transactions through the Web.
@@ -45,13 +45,24 @@ class Home extends Component {
           </p>
           <h4>Live Demo</h4>
           <p>
-            Below shows a demonstration of our mining widget. Once consensus has
-            been established, a toggle button will appear to switch between
-            mining (On) or idle (Off) state. Switch the toggle button to{' '}
-            <strong>On</strong> to start mining.
+            Below shows a demonstration of our miner. Once consensus has been
+            established, a toggle button will appear to switch between mining
+            (On) or idle (Off) state. Switch it to On to start mining.
+            <strong>
+              You are connecting to the{' '}
+              <a
+                href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
+                target="_blank"
+              >
+                Nimiq Testnet (Luna)
+              </a>. Testnet mining does not create permanent coins. The balance
+              of your coins in the Testnet may be reset at any time until the
+              release of the Nimiq Mainnet (in Q1 2018). Note that mining on
+              mobile devices drains your battery.
+            </strong>
           </p>
           <p>
-            The widget can be configured to mine for a number of hashes. In this
+            The miner can be configured to work for a number of hashes. In this
             demonstration, we have set the target hashes to{' '}
             <strong>500K</strong> and configured the payout to the{' '}
             <a
@@ -59,11 +70,8 @@ class Home extends Component {
               target="_blank"
             >
               following wallet address
-            </a>.
-          </p>
-          <p>
-            By default, the miner uses only one thread, but you can adjust the
-            number of threads by clicking the (+) and (-) buttons. Higher
+            </a>. By default, the miner uses only one thread, but you can adjust
+            the number of threads by clicking the (+) and (-) buttons. Higher
             threads will be more CPU-intensive.
           </p>
           <CoinmiqMiner
@@ -82,28 +90,10 @@ class Home extends Component {
         >
           <p className="lead">
             <Button color="primary" size="lg">
-              GET MINING WIDGET
-            </Button>
-            {'   '}
-            <Button color="danger" size="lg">
-              REMOTE MINING
+              START MINING NOW!
             </Button>
           </p>
         </div>
-        <Card>
-          <CardBody>
-            <CardTitle>Remote Mining</CardTitle>
-            <CardText>
-              Our technology also allows you donate your hashrate and seamlessly
-              transfer micro-values over the Internet by mining for someone
-              else. This can be useful when you need to pay or send small amount
-              of money to someone but do not have cash ready. In this case, you
-              mine from your computer and set the wallet address of that person
-              as the payout address.
-            </CardText>
-          </CardBody>
-        </Card>
-        <br />
         <Card>
           <CardBody>
             <CardTitle>What is Coinmiq?</CardTitle>
@@ -112,12 +102,33 @@ class Home extends Component {
               embedded in your website. Your users will mine Nimiq, a type of
               crypto-currency (<a href="#nimiq">explained here</a>) while they
               are browsing. By letting users pay you with their CPU power, our
-              mining widget provides an excellent alternative to annoying ads.
+              mining component provides an excellent alternative to annoying
+              ads.
             </CardText>
+          </CardBody>
+        </Card>
+        <br />
+
+        <Card>
+          <CardBody>
+            <CardTitle>Mining Details</CardTitle>
             <CardText>
-              Why not mine Bitcoin, Ethereum or any other high-profile
-              crypto-currencies? We explain our reasons below.
+              Due to the nature of the blockchain technology that we use, mining
+              is performed in a completely decentralised manner (there is no
+              central server). At the moment, the component only supports solo
+              mining in the Testnet, but we will implement pooled mining when it
+              is released in Q1 2018.
             </CardText>
+          </CardBody>
+        </Card>
+        <br />
+
+        <Card>
+          <CardBody>
+            <CardTitle>
+              Why not mine Bitcoin, Ethereum or any other high-profile
+              crypto-currencies?
+            </CardTitle>{' '}
             <CardText>
               1. The value of Nimiq is quite high, and it can be mined with
               similar efficiency on high- and low-end hardwares alike on the
@@ -145,23 +156,27 @@ class Home extends Component {
               3. Since it is being built from ground-up to mine on an entirely
               new blockchain native to the Web,{' '}
               <strong>
-                our mining widget has more technological advantages
+                our mining component has more technological advantages
               </strong>{' '}
-              compared to other alternatives – in speed and performance. Many
-              malwares that covertly perform crypto-mining prefer Monero due to
-              its anonimity, but since we focus on consented browser mining (by
-              being transparent and asking the user before using their
-              resources), we like the ease-of-payment and simplicity that Nimiq
-              offers.
+              compared to{' '}
+              <a href="http://www.coinhive.com" target="_blank">
+                other alternatives
+              </a>{' '}
+              – in speed and performance. Many malwares that covertly perform
+              crypto-mining prefer Monero due to its anonimity, but since we
+              focus on consented browser mining (by being transparent and asking
+              the user before using their resources), we like the
+              ease-of-payment and simplicity that Nimiq offers.
             </CardText>
           </CardBody>
         </Card>
+        <br />
 
         <a name="nimiq" />
         <div className="CardGroup">
           <h1>Powered by the Nimiq Blockchain</h1>
           <p>
-            Our mining widget is powered by{' '}
+            Our mining component is powered by{' '}
             <a href="http://www.nimiq.com" target="_blank">
               Nimiq
             </a>, a Web-based blockchain technology that provides fast
