@@ -87,7 +87,7 @@ class GetMiner extends Component {
               </li>
               <li>
                 <strong>targetHash</strong>: The total number of hashes to mine
-                for., defaults to 500K. Faster computers will reach this target
+                for. Defaults to 500K. Faster computers will reach this target
                 earlier.
               </li>
               <li>
