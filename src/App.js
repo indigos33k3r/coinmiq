@@ -6,6 +6,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import GetMiner from './GetMiner';
+import PowLink from './PowLink';
+import PowMine from './PowMine';
 
 import { Navbar, Nav, NavItem } from 'reactstrap';
 import logo_inverse_small from './images/logo_word_inverse_small.png';
@@ -18,10 +20,13 @@ function MyHeader(props) {
       </Link>
       <Nav className="mr-auto" navbar>
         <NavItem>
-          &nbsp;&nbsp;<Link to="/getMiner">Get Miner</Link>&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;<Link to="/getMiner">Get Miner</Link>&nbsp;&nbsp;&nbsp;
         </NavItem>
         <NavItem>
-          &nbsp;&nbsp;<a
+          &nbsp;&nbsp;&nbsp;<Link to="/createPowlink">Powlinks</Link>&nbsp;&nbsp;&nbsp;
+        </NavItem>
+        <NavItem>
+          &nbsp;&nbsp;&nbsp;<a
             href="https://www.github.com/joewandy/coinmiq"
             target="_blank"
           >
@@ -42,7 +47,7 @@ function MyFooter(props) {
       }}
     >
       <p>
-        <small>Copyright © 2017 Coinmiq</small>
+        <small>Copyright © 2017 Coinmiq.com</small>
       </p>
     </div>
   );
@@ -59,6 +64,8 @@ class App extends Component {
         <div>
           <MyHeader />
           <Route exact path="/getMiner" component={GetMiner} />
+          <Route exact path="/createPowlink" component={PowLink} />
+          <Route exact path="/mine/:to" component={PowMine} />
           <Route exact path="/" component={Home} />
           <MyFooter />
         </div>

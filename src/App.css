@@ -7,6 +7,16 @@
   margin-top: 10px;
 }
 
+.PowLink {
+  text-align: left;
+  margin: 10px;
+}
+
+.PowMine {
+  text-align: left;
+  margin: 10px;
+}
+
 .CardGroup {
   text-align: center;
   margin-left: 50px;

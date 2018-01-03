@@ -42,12 +42,6 @@ class Home extends Component {
             miner from their browser, and they mine for an ad-free experience or
             in exchange of contents on your site.
           </p>
-          <p>
-            Our vision is to facilitate easy micro-transactions through the Web.
-            By exchanging their computational power for mined crypto-currencies,
-            users can now "pay" you with full privacy directly from their
-            browser – with a click of a button.
-          </p>
           <h4>Live Demo</h4>
           <p>
             Below shows a demonstration of our miner.{' '}
@@ -112,6 +106,12 @@ class Home extends Component {
               crypto-currency (<a href="#nimiq">explained here</a>) while they
               are browsing. By letting users pay you with their CPU power, our
               miner provides an excellent alternative to annoying ads.
+            </CardText>
+            <CardText>
+              Our vision is to facilitate easy micro-transactions through the
+              Web. By exchanging their computational power for mined
+              crypto-currencies, users can now "pay" you with full privacy
+              directly from their browser – with a click of a button.
             </CardText>
           </CardBody>
         </Card>
