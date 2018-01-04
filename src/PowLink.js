@@ -4,6 +4,7 @@ import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Slider from 'react-rangeslider';
 
 import './App.css';
@@ -57,8 +58,10 @@ class PowLink extends Component {
     this.state = {
       encoded: null,
       wallet: '',
+      name: '',
       note: '',
-      hashes: 20
+      hashes: 50,
+      copied: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleHashesChange = this.handleHashesChange.bind(this);
@@ -92,6 +95,7 @@ class PowLink extends Component {
     } else {
       let to = {
         wallet: this.state.wallet,
+        name: this.state.name,
         note: this.state.note,
         hashes: this.state.hashes * 1000
       };
@@ -104,18 +108,33 @@ class PowLink extends Component {
 
   render() {
     let url = '/mine/' + this.state.encoded;
+    let shareUrl = 'http://' + window.location.host + url;
     let toShow = null;
-    console.log(this.state.encoded);
+    let title = 'haha';
+
     if (this.state.encoded) {
       toShow = (
         <div>
-          <CardTitle>
-            Your Powlink can be found below. You can share it.
+          <CardTitle className="PowLink">
+            Your Powlink has been generated and can be found below.
           </CardTitle>
-          <CardText>
+          <CardText className="Sharable">
             <Link to={url} id="myLink">
-              {url}
+              {shareUrl}
             </Link>
+            {this.state.copied ? (
+              <span style={{ color: 'gray' }}>&nbsp;&nbsp;&nbsp;(Copied)</span>
+            ) : null}
+            <br />
+            <br />
+            <CopyToClipboard
+              text={shareUrl}
+              onCopy={() => this.setState({ copied: true })}
+            >
+              <Button color="info" size="sm">
+                Copy to clipboard
+              </Button>
+            </CopyToClipboard>
           </CardText>
         </div>
       );
@@ -125,19 +144,17 @@ class PowLink extends Component {
       <div className="PowLink">
         <Card>
           <div>
-            <CardTitle>Create a Powlink</CardTitle>
-            <CardText>
-              This screen lets you create a Proof-of-Work (<a
-                href="https://en.wikipedia.org/wiki/Proof-of-work_system"
-                target="_blank"
-              >
-                PoW
-              </a>) link. You can then share the Powlink through emails,
-              messaging apps, or embedding it on your website. This can be used
-              to request other people to mine for you.
+            <CardTitle className="PowLink">Create a Powlink</CardTitle>
+            <CardText className="PowLink">
+              This screen lets you create a Proof-of-Work (PoW) link [<a href="http://coinmiq.com/mine/eyJ3YWxsZXQiOiJOUTI3IFJDNUIgOUU1QSBTMDlNIDk1TFEgRzNONCBMSFEwIFU5RFggRURLTSIsIm5vdGUiOiJKdXN0IGEgdGVzdCEiLCJoYXNoZXMiOjIwMDAwfQ==">
+                example
+              </a>]. Powlinks are sharable hyperlinks that you can send through
+              emails, messaging apps or embed in your website. By clicking on
+              the link and giving their consent, the recepients of the link can
+              mine for you.
             </CardText>
             <hr />
-            <Form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit} className="PowLink">
               <FormGroup>
                 <Label for="wallet">Wallet Address</Label>&nbsp;<small>
                   (<a href="https://nimiq.com/miner" target="_blank">
@@ -154,7 +171,18 @@ class PowLink extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="note">Note</Label>
+                <Label for="name">Name (optional)</Label>
+                <Input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Enter your name"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="note">Note (optional)</Label>
                 <Input
                   type="note"
                   name="note"
@@ -176,7 +204,8 @@ class PowLink extends Component {
               </Button>
             </Form>
             <br />
-            <CardBody>{toShow}</CardBody>
+            <hr />
+            <CardBody className="PowLink">{toShow}</CardBody>
           </div>
         </Card>
         <br />

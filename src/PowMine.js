@@ -64,7 +64,7 @@ class PowMine extends Component {
         );
       } else {
         return (
-          <div className="PowMine">
+          <div>
             <Card>
               <CardTitle>Powlink Mining</CardTitle>
               <CardBody>

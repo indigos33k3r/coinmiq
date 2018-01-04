@@ -12,6 +12,12 @@
   margin: 10px;
 }
 
+.Sharable {
+  border: dotted 1px black;
+  margin: 10px;
+  padding: 10px;
+}
+
 .PowMine {
   text-align: left;
   margin: 10px;
