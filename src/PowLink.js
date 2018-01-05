@@ -179,7 +179,7 @@ class PowLink extends Component {
           <div>
             <CardTitle className="PowLink">Create a Powlink</CardTitle>
             <CardText className="PowLink">
-              This screen lets you create a Proof-of-Work (PoW) link [<a href="http://coinmiq.com/mine/eyJ3YWxsZXQiOiJOUTI3IFJDNUIgOUU1QSBTMDlNIDk1TFEgRzNONCBMSFEwIFU5RFggRURLTSIsIm5vdGUiOiJKdXN0IGEgdGVzdCEiLCJoYXNoZXMiOjIwMDAwfQ==">
+              This screen lets you create a Proof-of-Work (PoW) link [<a href="http://coinmiq.com/mine/eyJ3YWxsZXQiOiJOUTI3IFJDNUIgOUU1QSBTMDlNIDk1TFEgRzNONCBMSFEwIFU5RFggRURLTSIsIm5hbWUiOiJjb2lubWlxIiwibm90ZSI6IlRoYW5rIHlvdSBmb3IgeW91ciBzdXBwb3J0ISIsImhhc2hlcyI6NTAwMDB9">
                 example
               </a>]. Powlinks are sharable hyperlinks that you can send through
               emails, messaging apps or embed in your website. By clicking on
