@@ -49,20 +49,20 @@ class Home extends Component {
               Click the toggle button on the top left corner and wait until
               consensus has been established
             </strong>. Mining begins when you see the message "Mining to ...".
-            Here we set the miner to collect a total of 10K hashes and send the
+            Here we set the miner to collect a total of 50K hashes and send the
             mining reward to the{' '}
             <a
               href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
               target="_blank"
             >
               following wallet address
-            </a>. The miner uses only one thread, but you can increase this by
-            clicking the (+) button. Higher threads complete faster but use more
-            CPU resources.
+            </a>. The miner uses a conservative number of threads, but you can
+            increase this by clicking the (+) button. Higher threads complete
+            faster but use more CPU resources.
           </p>
           <CoinmiqMiner
             address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
-            targetHash="10000"
+            targetHash="50000"
             width="300px"
             height="350px"
           />

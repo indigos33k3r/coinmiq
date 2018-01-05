@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import {
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller
+} from 'react-scroll';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Slider from 'react-rangeslider';
@@ -70,6 +77,27 @@ class PowLink extends Component {
 
   componentDidMount(prevProps) {
     window.scrollTo(0, 0);
+
+    Events.scrollEvent.register('begin', function(to, element) {
+      console.log('begin', arguments);
+    });
+
+    Events.scrollEvent.register('end', function(to, element) {
+      console.log('end', arguments);
+    });
+
+    scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+  scrollToTop() {
+    scroll.scrollToTop();
+  }
+  scrollToBottom() {
+    scroll.scrollToBottom();
   }
 
   handleInputChange(event) {
@@ -92,6 +120,10 @@ class PowLink extends Component {
     event.preventDefault();
     if (this.state.wallet === '') {
       alert('Wallet address is required');
+    } else if (this.state.name === '') {
+      alert('Name is required');
+    } else if (this.state.note === '') {
+      alert('Note is required');
     } else {
       let to = {
         wallet: this.state.wallet,
@@ -111,6 +143,7 @@ class PowLink extends Component {
     let shareUrl = 'http://' + window.location.host + url;
     let toShow = null;
     let title = 'haha';
+    this.scrollToBottom();
 
     if (this.state.encoded) {
       toShow = (
@@ -171,7 +204,7 @@ class PowLink extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="name">Name (optional)</Label>
+                <Label for="name">Name</Label>
                 <Input
                   type="name"
                   name="name"
@@ -182,7 +215,7 @@ class PowLink extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="note">Note (optional)</Label>
+                <Label for="note">Note</Label>
                 <Input
                   type="note"
                   name="note"

@@ -41,41 +41,95 @@ class PowMine extends Component {
         return (
           <div className="PowMine">
             <Card>
-              <CardTitle>Powlink Mining</CardTitle>
+              <CardTitle className="PowMine">
+                You have received a Powlink
+              </CardTitle>
               <CardBody>
                 <CardText>
-                  You are mining {decoded.hashes} Hashes for {decoded.wallet}
+                  <strong>{decoded.name}</strong> would like you to mine{' '}
+                  {decoded.hashes} Hashes for the following wallet address:{' '}
+                  {decoded.wallet}.
                 </CardText>
-                <CardText>Note: {decoded.note}</CardText>
                 <CardText>
-                  You are mining test coins, and it may drain your battery!
+                  This Proof-of-Work link has been shared to you by{' '}
+                  <strong>{decoded.name}</strong> with the following message:{' '}
+                  <em>{decoded.note}</em>.
                 </CardText>
+                <p>
+                  <strong>Important:</strong>{' '}
+                  <em>
+                    You are connecting to the{' '}
+                    <a
+                      href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
+                      target="_blank"
+                    >
+                      Nimiq Testnet (Luna)
+                    </a>. Testnet mining DOES NOT create permanent coins. The
+                    balance of your coins in the Testnet may be reset at any
+                    time until the release of the Nimiq Mainnet in Q1 2018. Note
+                    that mining on mobile devices drains your battery.
+                  </em>
+                </p>
               </CardBody>
             </Card>
             <br />
-            <CoinmiqMiner
-              address={decoded.wallet}
-              targetHash={decoded.hashes}
-              width="300px"
-              height="350px"
-            />
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <h3>Please click the [Off] button below to begin mining</h3>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
+              <CoinmiqMiner
+                address={decoded.wallet}
+                targetHash={decoded.hashes}
+                width="300px"
+                height="350px"
+              />
+            </div>
             <br />
           </div>
         );
       } else {
         return (
-          <div>
+          <div className="PowMine">
             <Card>
-              <CardTitle>Powlink Mining</CardTitle>
+              <CardTitle className="PowMine">
+                You have received a Powlink
+              </CardTitle>
               <CardBody>
                 <CardText>
-                  You are about to mine {decoded.hashes} Hashes for{' '}
-                  {decoded.wallet}
+                  <strong>{decoded.name}</strong> would like you to mine{' '}
+                  {decoded.hashes} Hashes for the following wallet address:{' '}
+                  {decoded.wallet}.
                 </CardText>
-                <CardText>Note: {decoded.note}</CardText>
                 <CardText>
-                  You are mining test coins, and it may drain your battery!
+                  This Proof-of-Work link has been shared to you by{' '}
+                  <strong>{decoded.name}</strong> with the following message:{' '}
+                  <em>{decoded.note}</em>.
                 </CardText>
+                <p>
+                  <strong>Important:</strong>{' '}
+                  <em>
+                    You are connecting to the{' '}
+                    <a
+                      href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
+                      target="_blank"
+                    >
+                      Nimiq Testnet (Luna)
+                    </a>. Testnet mining DOES NOT create permanent coins. The
+                    balance of your coins in the Testnet may be reset at any
+                    time until the release of the Nimiq Mainnet in Q1 2018. Note
+                    that mining on mobile devices drains your battery.
+                  </em>
+                </p>
               </CardBody>
             </Card>
             <br />
@@ -85,7 +139,7 @@ class PowMine extends Component {
               block
               onClick={this.handleOnClick}
             >
-              Do it!
+              Yes, I Understand. Do it!
             </Button>
             <br />
           </div>
