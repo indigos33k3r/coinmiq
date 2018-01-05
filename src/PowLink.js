@@ -135,6 +135,7 @@ class PowLink extends Component {
       this.setState({
         encoded: encoded
       });
+      this.scrollToBottom();
     }
   }
 
@@ -143,7 +144,6 @@ class PowLink extends Component {
     let shareUrl = 'http://' + window.location.host + url;
     let toShow = null;
     let title = 'haha';
-    this.scrollToBottom();
 
     if (this.state.encoded) {
       toShow = (
