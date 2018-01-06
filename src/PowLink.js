@@ -3,13 +3,7 @@ import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import {
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller
-} from 'react-scroll';
+import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Slider from 'react-rangeslider';
@@ -143,7 +137,6 @@ class PowLink extends Component {
     let url = '/mine/' + this.state.encoded;
     let shareUrl = 'http://' + window.location.host + url;
     let toShow = null;
-    let title = 'haha';
 
     if (this.state.encoded) {
       toShow = (

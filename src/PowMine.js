@@ -36,51 +36,70 @@ class PowMine extends Component {
   render() {
     const decoded = this.state.decoded;
     const doMining = this.state.doMining;
+    const nimiqWatchUrl =
+      'https://nimiq.watch/#' + decoded.wallet.replace(/\s+/g, '+');
+    let top = (
+      <Card>
+        <CardTitle className="PowMine">
+          You have received a Powlink from {decoded.name}
+        </CardTitle>
+        <CardBody>
+          <CardText>
+            <strong>{decoded.name}</strong> would like you to mine{' '}
+            <strong>{decoded.hashes}</strong> Hashes for the following wallet
+            address:
+          </CardText>
+          <CardText className="Sharable">
+            <img
+              src="https://robohash.org/{decoded.wallet}.png?size=100x100"
+              alt="robohash"
+            />
+            <strong>
+              <a href={nimiqWatchUrl} target="_blank">
+                {decoded.wallet}
+              </a>
+            </strong>
+          </CardText>
+          <CardText>
+            The following message was attached: <em>{decoded.note}</em>.
+          </CardText>
+          <CardText>
+            To begin mining, click the button below. You may leave the miner to
+            running as long as this page is open. During mining, the wallet
+            address of the recipient will be credited with the appropriate
+            mining reward. To quit the process at any time, simply close this
+            page.
+          </CardText>
+        </CardBody>
+      </Card>
+    );
+    let bottom = (
+      <Card>
+        <CardBody>
+          <p>
+            <strong>Important:</strong>{' '}
+            <em>
+              You are connecting to the{' '}
+              <a
+                href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
+                target="_blank"
+              >
+                Nimiq Testnet (Luna)
+              </a>. Testnet mining DOES NOT create permanent coins. The balance
+              of your coins in the Testnet may be reset at any time until the
+              release of the Nimiq Mainnet in Q1 2018. Note that mining on
+              mobile devices drains your battery.
+            </em>
+          </p>
+        </CardBody>
+      </Card>
+    );
     if (decoded) {
       if (doMining) {
         return (
           <div className="PowMine">
-            <Card>
-              <CardTitle className="PowMine">
-                You have received a Powlink
-              </CardTitle>
-              <CardBody>
-                <CardText>
-                  <strong>{decoded.name}</strong> would like you to mine{' '}
-                  {decoded.hashes} Hashes for the following wallet address:{' '}
-                  {decoded.wallet}.
-                </CardText>
-                <CardText>
-                  This Proof-of-Work link has been shared to you by{' '}
-                  <strong>{decoded.name}</strong> with the following message:{' '}
-                  <em>{decoded.note}</em>.
-                </CardText>
-                <p>
-                  <strong>Important:</strong>{' '}
-                  <em>
-                    You are connecting to the{' '}
-                    <a
-                      href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
-                      target="_blank"
-                    >
-                      Nimiq Testnet (Luna)
-                    </a>. Testnet mining DOES NOT create permanent coins. The
-                    balance of your coins in the Testnet may be reset at any
-                    time until the release of the Nimiq Mainnet in Q1 2018. Note
-                    that mining on mobile devices drains your battery.
-                  </em>
-                </p>
-              </CardBody>
-            </Card>
+            {top}
             <br />
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center'
-              }}
-            >
-              <h3>Please click the [Off] button below to begin mining</h3>
-            </div>
             <div
               style={{
                 display: 'flex',
@@ -92,46 +111,17 @@ class PowMine extends Component {
                 targetHash={decoded.hashes}
                 width="300px"
                 height="350px"
+                autoStart={true}
               />
             </div>
             <br />
+            {bottom}
           </div>
         );
       } else {
         return (
           <div className="PowMine">
-            <Card>
-              <CardTitle className="PowMine">
-                You have received a Powlink
-              </CardTitle>
-              <CardBody>
-                <CardText>
-                  <strong>{decoded.name}</strong> would like you to mine{' '}
-                  {decoded.hashes} Hashes for the following wallet address:{' '}
-                  {decoded.wallet}.
-                </CardText>
-                <CardText>
-                  This Proof-of-Work link has been shared to you by{' '}
-                  <strong>{decoded.name}</strong> with the following message:{' '}
-                  <em>{decoded.note}</em>.
-                </CardText>
-                <p>
-                  <strong>Important:</strong>{' '}
-                  <em>
-                    You are connecting to the{' '}
-                    <a
-                      href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
-                      target="_blank"
-                    >
-                      Nimiq Testnet (Luna)
-                    </a>. Testnet mining DOES NOT create permanent coins. The
-                    balance of your coins in the Testnet may be reset at any
-                    time until the release of the Nimiq Mainnet in Q1 2018. Note
-                    that mining on mobile devices drains your battery.
-                  </em>
-                </p>
-              </CardBody>
-            </Card>
+            {top}
             <br />
             <Button
               color="warning"
@@ -142,6 +132,7 @@ class PowMine extends Component {
               Yes, I Understand. Do it!
             </Button>
             <br />
+            {bottom}
           </div>
         );
       }
