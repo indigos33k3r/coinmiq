@@ -176,8 +176,8 @@ class PowLink extends Component {
                 example
               </a>]. Powlinks are sharable hyperlinks that you can send through
               emails, messaging apps or embed in your website. By clicking on
-              the link and giving their consent, the recipients of the link can
-              mine for you.
+              the link and giving their consent, recipients of the link can mine
+              for you.
             </CardText>
             <hr />
             <Form onSubmit={this.handleSubmit} className="PowLink">

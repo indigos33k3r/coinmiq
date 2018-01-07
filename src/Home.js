@@ -86,12 +86,33 @@ class Home extends Component {
           <h4>News</h4>
           <ul>
             <li>
-              <em>07 January 2018</em>: Fixed a small bug with initialisating
-              the number of threads for the miner component. Now you should see
-              the same hashrate from Coinmiq miner and the{' '}
-              <a href="https://www.nimiq.com/miner" target="_blank">
-                Luna Testnet miner
-              </a>. Pooled mining support will be coming soon.
+              <em>07 January 2018</em>:
+              <ul>
+                <li>
+                  Fixed a small bug with initialisating the number of threads
+                  for the miner component. Now you should see the same hashrate
+                  from Coinmiq miner and the{' '}
+                  <a href="https://www.nimiq.com/miner" target="_blank">
+                    Luna Testnet miner
+                  </a>.
+                </li>
+                <li>
+                  The Nimiq dev team said that pooled mining support will be
+                  coming soon.
+                </li>
+                <li>
+                  We have implemented a new feature:{' '}
+                  <a
+                    href="https://en.wikipedia.org/wiki/Proof-of-work_system"
+                    target="_blank"
+                  >
+                    Proof-of-Work (PoW)
+                  </a>{' '}
+                  link. This lets you create sharable hyperlink to request other
+                  people to mine for you.&nbsp;
+                  <Link to="/createPowlink">Give it a try here!</Link>
+                </li>
+              </ul>
             </li>
           </ul>
         </Jumbotron>

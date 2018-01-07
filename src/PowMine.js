@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Button } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
+import { Link } from 'react-router-dom';
 
 import './App.css';
 
@@ -46,8 +47,8 @@ class PowMine extends Component {
         </CardTitle>
         <CardBody>
           <CardText>
-            <strong>{decoded.name}</strong> would like you to mine{' '}
-            <strong>{decoded.hashes}</strong> Hashes for the following wallet
+            <strong>{decoded.name}</strong> has requested you to mine{' '}
+            <strong>{decoded.hashes}</strong> Hashes to the following wallet
             address:
           </CardText>
           <div className="Sharable">
@@ -66,7 +67,7 @@ class PowMine extends Component {
             </CardText>
           </div>
           <CardText>
-            The following message was included in the link:{' '}
+            The following message was included in the request:{' '}
             <em>{decoded.note}</em>.
           </CardText>
           <CardText>
@@ -75,6 +76,11 @@ class PowMine extends Component {
             address of the recipient will be credited with the appropriate
             reward depending on the hashrate and mining duration. To quit this
             process at any time, simply close this page.
+          </CardText>
+          <CardText>
+            To create your own sharable link to request other people to mine for
+            you,&nbsp;
+            <Link to="/createPowlink">click here</Link>.
           </CardText>
         </CardBody>
       </Card>
