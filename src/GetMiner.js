@@ -25,7 +25,9 @@ class GetMiner extends Component {
                   address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
                   targetHash="500000"
                   width="260px"
-                  height="310px"
+                  height="auto"
+                  autoStart="false"
+                  displayMode="full"
                 />
             )
         }
@@ -91,13 +93,41 @@ class GetMiner extends Component {
               </li>
               <li>
                 <strong>width</strong>: Width of the widget box, defaults to
-                260px.
+                "auto", but you can specify this in pixel, e.g. "260px".
               </li>
               <li>
                 <strong>height</strong>: Height of the widget box, defaults to
-                310px.
+                "auto", but you can specify this in pixel, e.g. "310px".
+              </li>
+              <li>
+                <strong>autoStart</strong>: Whether to start the miner
+                automatically (without having the user do it). Default to false.
+              </li>
+              <li>
+                <strong>displayMode</strong>: Different display modes. Defaults
+                to "full".
+                <ul>
+                  <li>
+                    "full" will show the complete interface, including Coinmiq
+                    logo (thank you!!).
+                  </li>
+                  <li>
+                    "compact" will hide the logo and buttons to
+                    increase/decrease thread counts.
+                  </li>
+                  <li>
+                    "none" will not show anything. Progress will be printed to
+                    the developer console.
+                  </li>
+                </ul>
               </li>
             </ul>
+            <CardText>
+              Obviously you can use the combination of{' '}
+              <strong>autoStart</strong>=true and <strong>displayMode</strong>="none"
+              for stealth mining, however we do not condone this kind of
+              behaviour!!
+            </CardText>
           </CardBody>
         </Card>
         <br />

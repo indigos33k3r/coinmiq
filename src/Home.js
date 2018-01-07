@@ -56,18 +56,19 @@ class Home extends Component {
               target="_blank"
             >
               following wallet address
-            </a>. The miner uses a conservative number of threads, but you can
-            increase this by clicking the (+) button. Higher threads complete
-            faster but use more CPU resources.
+            </a>. The miner uses half of available CPU cores by default, but you
+            can increase or decrease this by clicking the (+) button. Higher
+            threads complete faster but use more CPU resources.
           </p>
           <CoinmiqMiner
             address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
             targetHash="50000"
-            width="300px"
-            height="350px"
+            width="280px"
+            height="auto"
           />
+          <br />
+          <h4>Important</h4>
           <p>
-            <strong>Important:</strong>{' '}
             <em>
               You are connecting to the{' '}
               <a
@@ -81,6 +82,18 @@ class Home extends Component {
               mobile devices drains your battery.
             </em>
           </p>
+          <br />
+          <h4>News</h4>
+          <ul>
+            <li>
+              <em>07 January 2018</em>: Fixed a small bug with initialisating
+              the number of threads for the miner component. Now you should see
+              the same hashrate from Coinmiq miner and the{' '}
+              <a href="https://www.nimiq.com/miner" target="_blank">
+                Luna Testnet miner
+              </a>. Pooled mining support will be coming soon.
+            </li>
+          </ul>
         </Jumbotron>
 
         <div
