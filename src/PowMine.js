@@ -34,6 +34,7 @@ class PowMine extends Component {
   }
 
   render() {
+    // window.Robohash.render('any text here', document.getElementById('robohash'))
     const decoded = this.state.decoded;
     const doMining = this.state.doMining;
     const nimiqWatchUrl =
@@ -41,7 +42,7 @@ class PowMine extends Component {
     let top = (
       <Card>
         <CardTitle className="PowMine">
-          You have received a Powlink from {decoded.name}
+          You have received a mining request from {decoded.name}
         </CardTitle>
         <CardBody>
           <CardText>
@@ -49,26 +50,31 @@ class PowMine extends Component {
             <strong>{decoded.hashes}</strong> Hashes for the following wallet
             address:
           </CardText>
-          <CardText className="Sharable">
-            <img
-              src="https://robohash.org/{decoded.wallet}.png?size=100x100"
-              alt="robohash"
-            />
-            <strong>
-              <a href={nimiqWatchUrl} target="_blank">
-                {decoded.wallet}
-              </a>
-            </strong>
+          <div className="Sharable">
+            <div id="robohash">
+              <img
+                src="https://robohash.org/{decoded.wallet}.png?size=100x100"
+                alt="robohash"
+              />
+            </div>
+            <CardText>
+              <strong>
+                <a href={nimiqWatchUrl} target="_blank">
+                  {decoded.wallet}
+                </a>
+              </strong>
+            </CardText>
+          </div>
+          <CardText>
+            The following message was included in the link:{' '}
+            <em>{decoded.note}</em>.
           </CardText>
           <CardText>
-            The following message was attached: <em>{decoded.note}</em>.
-          </CardText>
-          <CardText>
-            To begin mining, click the button below. You may leave the miner to
+            To begin mining, click the button below. You may leave the miner
             running as long as this page is open. During mining, the wallet
             address of the recipient will be credited with the appropriate
-            mining reward. To quit the process at any time, simply close this
-            page.
+            reward depending on the hashrate and mining duration. To quit this
+            process at any time, simply close this page.
           </CardText>
         </CardBody>
       </Card>
@@ -109,9 +115,10 @@ class PowMine extends Component {
               <CoinmiqMiner
                 address={decoded.wallet}
                 targetHash={decoded.hashes}
-                width="300px"
-                height="350px"
+                width="auto"
+                height="auto"
                 autoStart={true}
+                displayMode="compact"
               />
             </div>
             <br />
@@ -129,7 +136,7 @@ class PowMine extends Component {
               block
               onClick={this.handleOnClick}
             >
-              Yes, I Understand. Do it!
+              I understand. Do it!
             </Button>
             <br />
             {bottom}

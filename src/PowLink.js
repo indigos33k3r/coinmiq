@@ -25,8 +25,8 @@ class HorizontalCustomLabels extends Component {
     const horizontal = this.props.value;
     const horizontalLabels = {
       0: 'Low',
-      50: 'Medium',
-      100: 'High'
+      250: 'Medium',
+      500: 'High'
     };
 
     const formatHashes = value => value + ' KH';
@@ -36,7 +36,7 @@ class HorizontalCustomLabels extends Component {
       <div className="slider">
         <Slider
           min={10}
-          max={100}
+          max={500}
           value={horizontal}
           labels={horizontalLabels}
           format={formatHashes}
@@ -61,7 +61,7 @@ class PowLink extends Component {
       wallet: '',
       name: '',
       note: '',
-      hashes: 50,
+      hashes: 250,
       copied: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -176,7 +176,7 @@ class PowLink extends Component {
                 example
               </a>]. Powlinks are sharable hyperlinks that you can send through
               emails, messaging apps or embed in your website. By clicking on
-              the link and giving their consent, the recepients of the link can
+              the link and giving their consent, the recipients of the link can
               mine for you.
             </CardText>
             <hr />
