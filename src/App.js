@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 
-// import './4.0.0-beta.2_materia_bootstrap.min.css';
+import './united.bootstrap.min.css';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import WhyNimiq from './WhyNimiq';
 import GetMiner from './GetMiner';
 import PowLink from './PowLink';
 import PowMine from './PowMine';
 
 import { Navbar, Nav, NavItem } from 'reactstrap';
-import logo_inverse_small from './images/logo_word_inverse_small.png';
+import logo_inverse_small from './images/color_logo_transparent@2x_small.png';
 
 function MyHeader(props) {
   return (
@@ -63,10 +64,11 @@ class App extends Component {
       <Router>
         <div>
           <MyHeader />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/whyNimiq" component={WhyNimiq} />
           <Route exact path="/getMiner" component={GetMiner} />
           <Route exact path="/createPowlink" component={PowLink} />
           <Route exact path="/mine/:to" component={PowMine} />
-          <Route exact path="/" component={Home} />
           <MyFooter />
         </div>
       </Router>

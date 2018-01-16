@@ -101,7 +101,8 @@ class GetMiner extends Component {
               </li>
               <li>
                 <strong>autoStart</strong>: Whether to start the miner
-                automatically (without having the user do it). Default to false.
+                automatically (without having the user do it). Default to
+                "false".
               </li>
               <li>
                 <strong>displayMode</strong>: Different display modes. Defaults
@@ -124,7 +125,7 @@ class GetMiner extends Component {
             </ul>
             <CardText>
               Obviously you can use the combination of{' '}
-              <strong>autoStart</strong>=true and <strong>displayMode</strong>="none"
+              <strong>autoStart</strong>="true" and <strong>displayMode</strong>="none"
               for stealth mining, however we do not condone this kind of
               behaviour!!
             </CardText>
