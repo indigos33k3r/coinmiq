@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Jumbotron, Card, CardText, CardBody, CardTitle } from 'reactstrap';
+import CoinmiqMiner from 'react-coinmiq-miner';
 
 import './App.css';
 
@@ -35,6 +36,42 @@ class GetMiner extends Component {
 
     return (
       <div className="GetMiner">
+        <Jumbotron>
+          <h4 className="display-4">Browser mining made easy</h4>
+          <h5>A cryptocurrency miner for your website.</h5>
+          <hr className="my-2" />
+          <p>
+            We provide a JavaScript miner that you can embed into your site.
+            There is nothing to install. Your users loads a page containing our
+            miner from their browser, and they mine for an ad-free experience or
+            in exchange of contents on your site.
+          </p>
+          <h4>Live Demo</h4>
+          <p>
+            Below shows a demonstration of our miner.{' '}
+            <strong>
+              Click the toggle button on the top left corner and wait until
+              consensus has been established
+            </strong>. Mining begins when you see the message "Mining to ...".
+            Here we set the miner to collect a total of 50K hashes and send the
+            mining reward to the{' '}
+            <a
+              href="https://nimiq.watch/#NQ27+RC5B+9E5A+S09M+95LQ+G3N4+LHQ0+U9DX+EDKM"
+              target="_blank"
+            >
+              following wallet address
+            </a>. The miner uses half of available CPU cores by default, but you
+            can increase or decrease this by clicking the (+) button. Higher
+            threads complete faster but use more CPU resources.
+          </p>
+          <CoinmiqMiner
+            address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
+            targetHash="50000"
+            width="280px"
+            height="auto"
+          />
+        </Jumbotron>
+
         <Card>
           <CardBody>
             <CardTitle>Start mining now</CardTitle>
@@ -57,14 +94,28 @@ class GetMiner extends Component {
               (npm), simply run the following command: <br />
               <code>$ npm install --save react-coinmiq-miner</code>
             </CardText>
-            <CardText />
             <CardText>
               Soon we will provide a JavaScript library for Web sites not
               developed React, as well as a WordPress plug-in.
             </CardText>
+            <p className="text-primary">
+              <strong>
+                You are connecting to the{' '}
+                <a
+                  href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
+                  target="_blank"
+                >
+                  Nimiq Testnet (Luna)
+                </a>. Testnet mining DOES NOT create permanent coins. The
+                balance of your coins in the Testnet may be reset at any time
+                until the release of the Nimiq Mainnet in Q1 2018. Note that
+                mining on mobile devices drains your battery.
+              </strong>
+            </p>
           </CardBody>
         </Card>
         <br />
+
         <Card>
           <CardBody>
             <CardTitle>Component Usage</CardTitle>
@@ -121,6 +172,10 @@ class GetMiner extends Component {
                     the developer console.
                   </li>
                 </ul>
+              </li>
+              <li>
+                <strong>border</strong>: Whether to show border. Defaults to
+                "true".
               </li>
             </ul>
             <CardText>

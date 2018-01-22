@@ -6,52 +6,9 @@ import { Link } from 'react-router-dom';
 import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import Slider from 'react-rangeslider';
+import HorizontalCustomLabels from './HorizontalCustomLabels';
 
 import './App.css';
-import 'react-rangeslider/lib/index.css';
-
-class HorizontalCustomLabels extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange = value => {
-    this.props.onInputChange(value);
-  };
-
-  render() {
-    const horizontal = this.props.value;
-    const horizontalLabels = {
-      0: 'Low',
-      250: 'Medium',
-      500: 'High'
-    };
-
-    const formatHashes = value => value + ' KH';
-    const formatHashesLong = value => value * 1000 + ' Hashes';
-
-    return (
-      <div className="slider">
-        <Slider
-          min={10}
-          max={500}
-          value={horizontal}
-          labels={horizontalLabels}
-          format={formatHashes}
-          onChange={this.handleChange}
-          tooltip={true}
-          step={10}
-        />
-        <br />
-        <div className="value">
-          <strong>{formatHashesLong(horizontal)}</strong>
-        </div>
-      </div>
-    );
-  }
-}
 
 class PowLink extends Component {
   constructor(props, context) {
@@ -123,7 +80,7 @@ class PowLink extends Component {
         wallet: this.state.wallet,
         name: this.state.name,
         note: this.state.note,
-        hashes: this.state.hashes * 1000
+        hashes: this.state.hashes * 100000
       };
       let encoded = btoa(JSON.stringify(to));
       this.setState({
@@ -219,7 +176,7 @@ class PowLink extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="examplePassword">Target Hashes</Label>
+                <Label>Target Hashes</Label>
                 <HorizontalCustomLabels
                   value={this.state.hashes}
                   onInputChange={this.handleHashesChange}

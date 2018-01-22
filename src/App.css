@@ -1,5 +1,39 @@
-.App {
-  text-align: left;
+.Aligner {
+  display: flex;
+  align-items: center;
+  min-height: 24em;
+  justify-content: center;
+  background: white;
+  margin: 10px;
+}
+
+.Aligner-item {
+  flex: 1;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+
+.Aligner-item--fixed {
+  flex: none;
+  max-width: 90%;
+}
+
+.Aligner-item--fixed2 {
+  flex: none;
+  max-width: 50%;
+}
+
+.LogoCenter {
+  margin: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .GetMiner {
@@ -64,7 +98,8 @@
 
 body {
   font-size: 100%;
-  background: url(./images/cream_dust.png) repeat 0 0;
+  background: white;
+  margin: 10px;
 }
 
 .navbar a,
@@ -72,6 +107,14 @@ body {
 .navbar a:active,
 .navbar a:visited {
   color: white;
+}
+
+.navbar a.dropdown,
+.navbar a.dropdown:hover,
+.navbar a.dropdown:active,
+.navbar a.dropdown:visited {
+  color: black;
+  margin: 10px;
 }
 
 html {
