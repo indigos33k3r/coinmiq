@@ -47,12 +47,12 @@ class MyHeader extends Component {
         <Nav pills>
           <NavItem>
             <NavLink>
-              <Link to="/getMiner">Get Miner</Link>
+              <Link to="/getMiner">[Get Miner]</Link>
             </NavLink>
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle nav caret>
-              More
+              [More]
             </DropdownToggle>
             <DropdownMenu>
               <div>
