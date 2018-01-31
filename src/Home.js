@@ -120,11 +120,14 @@ class Home extends Component {
         <FormGroup>
           <Label for="exampleEmail">
             Wallet Address{' '}
-            <small>
-              <a href="#" onClick={this.loadExample}>
-                (load example)
-              </a>
-            </small>
+            <Button
+              outline
+              color="primary"
+              size="sm"
+              onClick={this.loadExample}
+            >
+              load example
+            </Button>
           </Label>
           <Input
             type="wallet"

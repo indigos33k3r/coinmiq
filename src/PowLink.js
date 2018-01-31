@@ -146,16 +146,24 @@ class PowLink extends Component {
             <hr />
             <Form onSubmit={this.handleSubmit} className="PowLink">
               <FormGroup>
-                <Label for="wallet">Wallet Address</Label>&nbsp;<small>
-                  (<a href="https://nimiq.com/miner" target="_blank">
+                <Label for="wallet">Wallet Address</Label>&nbsp;
+                <Button
+                  outline
+                  color="primary"
+                  size="sm"
+                  onClick={this.loadExample}
+                >
+                  load example
+                </Button>
+                &nbsp;<small>
+                  <a
+                    href="https://nimiq.com/miner"
+                    target="_blank"
+                    className="float-right"
+                  >
                     create a new wallet
-                  </a>)
-                </small>&nbsp;{' '}
-                <small>
-                  <a href="#" onClick={this.loadExample}>
-                    (load example)
                   </a>
-                </small>
+                </small>&nbsp;
                 <Input
                   type="wallet"
                   name="wallet"
