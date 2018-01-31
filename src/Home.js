@@ -155,6 +155,7 @@ class Home extends Component {
     if (this.state.doMining) {
       let wallet = this.state.wallet;
       let encodedWallet = 'https://nimiq.watch/#' + wallet.split(' ').join('+');
+      window.scrollTo(0, 0);
       return (
         <div>
           <div className="Aligner">
