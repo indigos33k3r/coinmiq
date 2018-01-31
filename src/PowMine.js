@@ -124,6 +124,7 @@ class PowMine extends Component {
                 width="auto"
                 height="auto"
                 autoStart={true}
+                border={false}
                 displayMode="compact"
               />
             </div>
@@ -137,7 +138,7 @@ class PowMine extends Component {
             {top}
             <br />
             <Button
-              color="warning"
+              color="primary"
               size="lg"
               block
               onClick={this.handleOnClick}

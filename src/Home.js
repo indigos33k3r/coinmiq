@@ -155,7 +155,7 @@ class Home extends Component {
       return (
         <div>
           <div className="Aligner">
-            <div class="Aligner-item--fixed">
+            <div className="Aligner-item--fixed">
               <CoinmiqMiner
                 address={wallet}
                 width="auto"
@@ -178,7 +178,7 @@ class Home extends Component {
     } else {
       return (
         <div className="Aligner">
-          <div class="Aligner-item--fixed">
+          <div className="Aligner-item--fixed">
             {title}
             <img
               className="LogoCenter"

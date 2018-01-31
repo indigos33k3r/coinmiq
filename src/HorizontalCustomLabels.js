@@ -22,7 +22,7 @@ class HorizontalCustomLabels extends Component {
     };
 
     const formatHashes = value => value + '0 KH';
-    const formatHashesLong = value => value * 100000 + ' Hashes';
+    const formatHashesLong = value => value * 10000 + ' Hashes';
 
     return (
       <div className="slider">
