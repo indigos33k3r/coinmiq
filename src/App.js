@@ -56,10 +56,16 @@ class MyHeader extends Component {
             </DropdownToggle>
             <DropdownMenu>
               <div>
+                <Link className="dropdown" to="/createPowlink">
+                  Powlinks
+                </Link>
+              </div>
+              <div>
                 <Link className="dropdown" to="/about">
                   About
                 </Link>
               </div>
+              <DropdownItem divider />
               <div>
                 <a
                   className="dropdown"
@@ -67,12 +73,6 @@ class MyHeader extends Component {
                 >
                   Github
                 </a>
-              </div>
-              <DropdownItem divider />
-              <div>
-                <Link className="dropdown" to="/createPowlink">
-                  Powlinks
-                </Link>
               </div>
               <div>
                 <a className="dropdown" href="https://nimiq.watch/">

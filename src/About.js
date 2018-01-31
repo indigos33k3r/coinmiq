@@ -60,6 +60,15 @@ class About extends Component {
             <CardTitle>News</CardTitle>
             <ul>
               <li>
+                <em>31 January 2018</em>:
+                <ul>
+                  <li>
+                    Website improvement. Mainnet release could be coming anytime
+                    soon! Wait for it.
+                  </li>
+                </ul>
+              </li>
+              <li>
                 <em>07 January 2018</em>:
                 <ul>
                   <li>
