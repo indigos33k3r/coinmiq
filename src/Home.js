@@ -11,7 +11,6 @@ import {
   PopoverHeader,
   PopoverBody
 } from 'reactstrap';
-import HorizontalCustomLabels from './HorizontalCustomLabels';
 import CoinmiqMiner from 'react-coinmiq-miner';
 
 import logo_inverse_small from './images/color_logo_transparent@2x.png';
@@ -26,24 +25,16 @@ class Home extends Component {
     this.state = {
       popoverOpen: false,
       wallet: '',
-      hashes: 250,
       doMining: false
     };
     this.loadExample = this.loadExample.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleHashesChange = this.handleHashesChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   loadExample = value => {
     this.setState({
       wallet: 'NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM'
-    });
-  };
-
-  handleHashesChange = value => {
-    this.setState({
-      hashes: value
     });
   };
 
@@ -67,12 +58,6 @@ class Home extends Component {
     });
   }
 
-  handleHashesChange = value => {
-    this.setState({
-      hashes: value
-    });
-  };
-
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.wallet === '') {
@@ -84,8 +69,9 @@ class Home extends Component {
 
   render() {
     let title = (
-      <div>
-        <h4>
+      <div className="text-center">
+        <br />
+        <h4 className="text-primary">
           Browser mining made easy{' '}
           <Button
             outline
@@ -149,18 +135,13 @@ class Home extends Component {
             onChange={this.handleInputChange}
             size="100"
           />
+          <br />
+          <br />
           <FormText color="muted">
             Your mining reward will be sent to the{' '}
             <a href="http://www.nimiq.com">Nimiq</a> wallet address specified
             above.{' '}
           </FormText>
-        </FormGroup>
-        <FormGroup>
-          <Label>Target Hashes</Label>
-          <HorizontalCustomLabels
-            value={this.state.hashes}
-            onInputChange={this.handleHashesChange}
-          />
         </FormGroup>
         <Button color="primary" size="lg" block>
           Mine
@@ -171,14 +152,12 @@ class Home extends Component {
     if (this.state.doMining) {
       let wallet = this.state.wallet;
       let encodedWallet = 'https://nimiq.watch/#' + wallet.split(' ').join('+');
-      let hashes = this.state.hashes * 100000;
       return (
         <div>
           <div className="Aligner">
             <div class="Aligner-item--fixed">
               <CoinmiqMiner
                 address={wallet}
-                targetHash={hashes}
                 width="auto"
                 height="auto"
                 autoStart={true}
@@ -200,12 +179,12 @@ class Home extends Component {
       return (
         <div className="Aligner">
           <div class="Aligner-item--fixed">
+            {title}
             <img
               className="LogoCenter"
               src={logo_inverse_small}
               alt="My logo"
             />
-            {title}
             {form}
           </div>
         </div>

@@ -111,8 +111,9 @@ class GetMiner extends Component {
               </li>
               <li>
                 <strong>targetHash</strong>: The total number of hashes to mine
-                for. Defaults to 500K. Faster computers will reach this target
-                earlier.
+                for. Useful for timed mining. Faster computers will reach this
+                target earlier. If this property is not specified, no progress
+                bar will be shown, and mining will run forever.
               </li>
               <li>
                 <strong>width</strong>: Width of the widget box, defaults to
@@ -150,12 +151,6 @@ class GetMiner extends Component {
                 "true".
               </li>
             </ul>
-            <CardText>
-              Obviously you can use the combination of{' '}
-              <strong>autoStart</strong>="true" and <strong>displayMode</strong>="none"
-              for stealth mining, however we do not condone this kind of
-              behaviour!!
-            </CardText>
           </CardBody>
         </Card>
         <br />
