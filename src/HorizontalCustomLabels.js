@@ -17,18 +17,18 @@ class HorizontalCustomLabels extends Component {
     const horizontal = this.props.value;
     const horizontalLabels = {
       0: 'Low',
-      250: 'Medium',
-      500: 'High'
+      500: 'Medium',
+      1000: 'High'
     };
 
     const formatHashes = value => value + '0 KH';
-    const formatHashesLong = value => value * 10000 + ' Hashes';
+    const formatHashesLong = value => value * 1000 + ' Hashes';
 
     return (
       <div className="slider">
         <Slider
           min={10}
-          max={500}
+          max={1000}
           value={horizontal}
           labels={horizontalLabels}
           format={formatHashes}

@@ -18,7 +18,7 @@ class PowLink extends Component {
       wallet: '',
       name: '',
       note: '',
-      hashes: 250,
+      hashes: 500,
       copied: false
     };
     this.loadExample = this.loadExample.bind(this);
@@ -87,7 +87,7 @@ class PowLink extends Component {
         wallet: this.state.wallet,
         name: this.state.name,
         note: this.state.note,
-        hashes: this.state.hashes * 100000
+        hashes: this.state.hashes * 1000
       };
       let encoded = btoa(JSON.stringify(to));
       this.setState({
