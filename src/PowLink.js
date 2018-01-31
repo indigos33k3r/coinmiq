@@ -21,6 +21,7 @@ class PowLink extends Component {
       hashes: 250,
       copied: false
     };
+    this.loadExample = this.loadExample.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleHashesChange = this.handleHashesChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,6 +51,12 @@ class PowLink extends Component {
   scrollToBottom() {
     scroll.scrollToBottom();
   }
+
+  loadExample = value => {
+    this.setState({
+      wallet: 'NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM'
+    });
+  };
 
   handleInputChange(event) {
     const target = event.target;
@@ -143,6 +150,11 @@ class PowLink extends Component {
                   (<a href="https://nimiq.com/miner" target="_blank">
                     create a new wallet
                   </a>)
+                </small>&nbsp;{' '}
+                <small>
+                  <a href="#" onClick={this.loadExample}>
+                    (load example)
+                  </a>
                 </small>
                 <Input
                   type="wallet"
