@@ -110,8 +110,12 @@ class Home extends Component {
     let title = (
       <div>
         <Jumbotron>
-          <img className="LogoCenter" src={logo_inverse_small} alt="My logo" />
-          <h1 className="display-3">Browser mining made easy.</h1>
+          <img
+            className="LogoCenter img-fluid"
+            src={logo_inverse_small}
+            alt="My logo"
+          />
+          <h3>Browser mining made easy.</h3>
           <p className="lead">
             We provide a JavaScript miner that you can embed into your site.
             There is nothing to install. Your users loads a page containing our
