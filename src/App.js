@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-import './united.bootstrap.min.css';
-import './App.css';
+//import './css/materia.bootstrap.min.css';
+import './css/united.bootstrap.min.css';
+//import './css/nimiq-style/nimiq-style.css';
+import './css/App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Home';
-import About from './About';
-import GetMiner from './GetMiner';
+import PoweredBy from './PoweredBy';
 import PowLink from './PowLink';
 import PowMine from './PowMine';
 
@@ -40,14 +41,14 @@ class MyHeader extends Component {
 
   render() {
     return (
-      <Navbar color="dark" dark expand>
+      <Navbar color="light" light expand>
         <Link to="/">
           <img src={logo_inverse_small} alt="My logo" />
         </Link>
         <Nav pills>
           <NavItem>
             <NavLink>
-              <Link to="/getMiner">[Get Miner]</Link>
+              <Link to="/coin">[Coin]</Link>
             </NavLink>
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -60,11 +61,6 @@ class MyHeader extends Component {
                   Powlinks
                 </Link>
               </div>
-              <div>
-                <Link className="dropdown" to="/about">
-                  About
-                </Link>
-              </div>
               <DropdownItem divider />
               <div>
                 <a
@@ -72,6 +68,11 @@ class MyHeader extends Component {
                   href="https://www.github.com/joewandy/coinmiq"
                 >
                   Github
+                </a>
+              </div>
+              <div>
+                <a className="dropdown" href="https://nimiq-testnet.com/">
+                  Testnet
                 </a>
               </div>
               <div>
@@ -116,8 +117,7 @@ class App extends Component {
         <div className="App">
           <MyHeader />
           <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/getMiner" component={GetMiner} />
+          <Route exact path="/coin" component={PoweredBy} />
           <Route exact path="/createPowlink" component={PowLink} />
           <Route exact path="/mine/:to" component={PowMine} />
           <MyFooter />

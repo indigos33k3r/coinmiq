@@ -54,15 +54,6 @@ class About extends Component {
             <CardTitle>News</CardTitle>
             <ul>
               <li>
-                <em>6 April 2018</em>:
-                <ul>
-                  <li>
-                    New website design. React plugin updates to work with the
-                    mainnet release candidate.
-                  </li>
-                </ul>
-              </li>
-              <li>
                 <em>31 January 2018</em>:
                 <ul>
                   <li>

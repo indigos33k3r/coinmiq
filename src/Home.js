@@ -9,13 +9,16 @@ import {
   FormText,
   Popover,
   PopoverHeader,
-  PopoverBody
+  PopoverBody,
+  Jumbotron
 } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
+import About from './About.js';
+import GetMiner from './GetMiner.js';
 
-import logo_inverse_small from './images/color_logo_transparent@2x.png';
+import logo_inverse_small from './images/main-mascot.92509dbd.png';
 
-import './App.css';
+import './css/App.css';
 
 class Home extends Component {
   constructor(props) {
@@ -34,7 +37,7 @@ class Home extends Component {
 
   loadExample = value => {
     this.setState({
-      wallet: 'NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM'
+      wallet: 'NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7'
     });
   };
 
@@ -68,67 +71,10 @@ class Home extends Component {
   }
 
   render() {
-    let title = (
-      <div className="text-center">
-        <br />
-        <h4 className="text-primary">
-          Browser mining made easy{' '}
-          <Button
-            outline
-            color="primary"
-            size="sm"
-            id="Popover1"
-            onClick={this.toggle}
-          >
-            help
-          </Button>
-        </h4>
-        <br />
-        <Popover
-          placement="bottom"
-          isOpen={this.state.popoverOpen}
-          target="Popover1"
-          toggle={this.toggle}
-        >
-          <PopoverHeader>Help!</PopoverHeader>
-          <PopoverBody>
-            <p className="text-primary">
-              <strong>Cryptocurrency</strong>
-            </p>
-            <p>
-              A cryptocurrency is a digital or virtual currency that uses
-              cryptography for security. Values in cryptocurrency is produced
-              through consensus of participants in the network.
-            </p>
-            <p className="text-primary">
-              <strong>Mining</strong>
-            </p>
-            <p>
-              In cryptocurrency networks, mining is the generation of
-              cryptocurrency coins, as a reward for validating transactions. By
-              participating in mining, you help to secure consensus and
-              contribute to the strength of the network. In return, you receive
-              mining rewards.
-            </p>
-          </PopoverBody>
-        </Popover>
-      </div>
-    );
-
     let form = (
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Label for="exampleEmail">
-            Wallet Address{' '}
-            <Button
-              outline
-              color="primary"
-              size="sm"
-              onClick={this.loadExample}
-            >
-              load example
-            </Button>
-          </Label>
+          <Label for="exampleEmail">Wallet Address</Label>
           <Input
             type="wallet"
             name="wallet"
@@ -138,18 +84,65 @@ class Home extends Component {
             onChange={this.handleInputChange}
             size="100"
           />
+          <Button color="primary" size="sm" onClick={this.loadExample}>
+            example address
+          </Button>
+          &nbsp;<small>
+            <a
+              href="https://nimiq-testnet.com"
+              target="_blank"
+              className="float-right"
+            >
+              create a new wallet
+            </a>
+          </small>&nbsp;
           <br />
           <br />
-          <FormText color="muted">
+          <FormText color="white">
             Your mining reward will be sent to the{' '}
             <a href="http://www.nimiq.com">Nimiq</a> wallet address specified
             above.{' '}
           </FormText>
         </FormGroup>
-        <Button color="primary" size="lg" block>
+        <Button color="warning" size="lg">
           Mine
         </Button>
       </Form>
+    );
+
+    let title = (
+      <div>
+        <Jumbotron>
+          <img className="LogoCenter" src={logo_inverse_small} alt="My logo" />
+          <h1 className="display-3">Browser mining made easy.</h1>
+          <p className="lead">
+            We provide a JavaScript miner that you can embed into your site.
+            There is nothing to install. Your users loads a page containing our
+            miner from their browser, and they mine for an ad-free experience or
+            in exchange of contents on your site.
+          </p>
+          <p>
+            <strong>Cryptocurrency Mining</strong>
+          </p>
+          <p>
+            A cryptocurrency is a digital or virtual currency that uses
+            cryptography for security. Values in cryptocurrency is produced
+            through consensus of participants in the network. In cryptocurrency
+            networks, mining is the generation of cryptocurrency coins, as a
+            reward for validating transactions. By participating in mining, you
+            help to secure consensus and contribute to the strength of the
+            network. In return, you receive mining rewards.
+          </p>
+
+          <hr className="my-2" />
+          <p>
+            Try it yourself below by entering a wallet address to mine to
+            (alternatively you can also create a new wallet by clicking the link
+            below.
+          </p>
+          <p className="lead">{form}</p>
+        </Jumbotron>
+      </div>
     );
 
     if (this.state.doMining) {
@@ -184,12 +177,8 @@ class Home extends Component {
         <div className="Aligner">
           <div className="Aligner-item--fixed">
             {title}
-            <img
-              className="LogoCenter"
-              src={logo_inverse_small}
-              alt="My logo"
-            />
-            {form}
+            <About />
+            <GetMiner />
           </div>
         </div>
       );

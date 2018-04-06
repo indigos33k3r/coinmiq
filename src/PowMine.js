@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
 import { Link } from 'react-router-dom';
 
-import './App.css';
+import './css/App.css';
 
 class PowMine extends Component {
   constructor(props, context) {
@@ -92,15 +92,11 @@ class PowMine extends Component {
             <strong>Important:</strong>{' '}
             <em>
               You are connecting to the{' '}
-              <a
-                href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
-                target="_blank"
-              >
-                Nimiq Testnet (Luna)
+              <a href="https://nimiq-testnet.com" target="_blank">
+                Nimiq Testnet
               </a>. Testnet mining DOES NOT create permanent coins. The balance
-              of your coins in the Testnet may be reset at any time until the
-              release of the Nimiq Mainnet in Q1 2018. Note that mining on
-              mobile devices drains your battery.
+              of your coins may be reset at any time. Note that mining on mobile
+              devices drains your battery.
             </em>
           </p>
         </CardBody>

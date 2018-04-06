@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
-import './App.css';
+import './css/App.css';
 
 class GetMiner extends Component {
   // constructor() {
@@ -22,7 +22,7 @@ class GetMiner extends Component {
         render() {
             return (
                 <CoinmiqMiner
-                  address="NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
+                  address="NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7"
                   targetHash="500000"
                   width="260px"
                   height="auto"
@@ -40,14 +40,6 @@ class GetMiner extends Component {
           <CardBody>
             <CardTitle>Start mining now</CardTitle>
             <CardText>
-              We provide a JavaScript miner (<a href="http://www.coinmiq.com">
-                live demo
-              </a>) that you can embed into your site. There is nothing to
-              install. Your users loads a page containing our miner from their
-              browser, and they mine for an ad-free experience or in exchange of
-              contents on your site.
-            </CardText>
-            <CardText>
               Our miner is available as a{' '}
               <a
                 href="https://www.npmjs.com/package/react-coinmiq-miner"
@@ -64,32 +56,8 @@ class GetMiner extends Component {
                 Node Package Manager
               </a>{' '}
               (npm), simply run the following command: <br />
-              <code>$ npm install --save react-coinmiq-miner</code>
+              <code>$ npm install react-coinmiq-miner</code>
             </CardText>
-            <CardText>
-              Soon we will provide a JavaScript library for Web sites not
-              developed React, as well as a WordPress plug-in.
-            </CardText>
-            <p className="text-primary">
-              <strong>
-                You are connecting to the{' '}
-                <a
-                  href="https://medium.com/nimiq-network/introducing-luna-fa0a845fd33e"
-                  target="_blank"
-                >
-                  Nimiq Testnet (Luna)
-                </a>. Testnet mining DOES NOT create permanent coins. The
-                balance of your coins in the Testnet may be reset at any time
-                until the release of the Nimiq Mainnet in Q1 2018. Note that
-                mining on mobile devices drains your battery.
-              </strong>
-            </p>
-          </CardBody>
-        </Card>
-        <br />
-
-        <Card>
-          <CardBody>
             <CardTitle>Component Usage</CardTitle>
             <CardText>
               The example below shows how the miner could be used in a React
@@ -102,8 +70,8 @@ class GetMiner extends Component {
             <ul>
               <li>
                 <strong>address</strong>: Required. Must be a valid Nimiq wallet
-                address in user-friendly format, e.g. `NQ27 RC5B 9E5A S09M 95LQ
-                G3N4 LHQ0 U9DX EDKM` (with the spaces). This can be created from{' '}
+                address in user-friendly format, e.g. `NQ32 VGUP 1GQM J8YL 1QNS
+                RYU8 CUUB XG35 A1Q7` (with the spaces). This can be created from{' '}
                 <a href="http://www.nimiq.com/miner" target="_blank">
                   any wallet app
                 </a>{' '}

@@ -8,7 +8,7 @@ import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import HorizontalCustomLabels from './HorizontalCustomLabels';
 
-import './App.css';
+import './css/App.css';
 
 class PowLink extends Component {
   constructor(props, context) {
@@ -54,7 +54,7 @@ class PowLink extends Component {
 
   loadExample = value => {
     this.setState({
-      wallet: 'NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM'
+      wallet: 'NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7'
     });
   };
 
@@ -147,31 +147,31 @@ class PowLink extends Component {
             <Form onSubmit={this.handleSubmit} className="PowLink">
               <FormGroup>
                 <Label for="wallet">Wallet Address</Label>&nbsp;
+                <Input
+                  type="wallet"
+                  name="wallet"
+                  id="wallet"
+                  placeholder="e.g. NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7"
+                  value={this.state.wallet}
+                  onChange={this.handleInputChange}
+                />
                 <Button
                   outline
                   color="primary"
                   size="sm"
                   onClick={this.loadExample}
                 >
-                  load example
+                  example address
                 </Button>
                 &nbsp;<small>
                   <a
-                    href="https://nimiq.com/miner"
+                    href="https://nimiq-testnet.com"
                     target="_blank"
                     className="float-right"
                   >
                     create a new wallet
                   </a>
                 </small>&nbsp;
-                <Input
-                  type="wallet"
-                  name="wallet"
-                  id="wallet"
-                  placeholder="e.g. NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
-                  value={this.state.wallet}
-                  onChange={this.handleInputChange}
-                />
               </FormGroup>
               <FormGroup>
                 <Label for="name">Name</Label>
