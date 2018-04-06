@@ -7,9 +7,6 @@ import {
   Label,
   Input,
   FormText,
-  Popover,
-  PopoverHeader,
-  PopoverBody,
   Jumbotron
 } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';

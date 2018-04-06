@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import {
-  Card,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardImg,
-  CardGroup
-} from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 import './css/App.css';
-
-import browser from './images/browser.png';
-import hashrate from './images/hashrate.png';
-import wallet from './images/wallet.png';
 
 class About extends Component {
   // constructor(props, context) {
@@ -33,10 +22,11 @@ class About extends Component {
             <CardTitle>What is Coinmiq?</CardTitle>
             <CardText>
               Coinmiq provides a brand-new JavaScript miner that can be easily
-              embedded in your website. Your users will mine Nimiq, a type of
-              crypto-currency (<a href="#nimiq">explained here</a>) while they
-              are browsing. By letting users pay you with their CPU power, our
-              miner provides an excellent alternative to annoying ads.
+              embedded in your website. Your users will mine{' '}
+              <a href="https://nimiq.com">Nimiq</a>
+              , a brand-new Web-based cryptocurrency, while they are browsing.
+              By letting users pay you with their CPU power, our miner provides
+              an excellent alternative to annoying ads.
             </CardText>
             <CardText>
               Our vision is to facilitate easy micro-transactions through the
@@ -49,7 +39,7 @@ class About extends Component {
               is performed in a completely decentralised manner (there is no
               central server). At the moment, the miner only supports solo
               mining in the Testnet, but we will implement pooled mining when it
-              is released in Q1 2018.
+              is released in 2018.
             </CardText>
             <CardTitle>News</CardTitle>
             <ul>

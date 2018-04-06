@@ -51,7 +51,8 @@ class GetMiner extends Component {
               <a href="https://reactjs.org/" target="_blank">
                 React
               </a>, a popular JavaScript library for building user interfaces in
-              modern Web application. To install the miner via{' '}
+              modern Web application (vanilla Javascript version is coming
+              soon!). To install the miner via{' '}
               <a href="https://www.npmjs.com/" target="_blank">
                 Node Package Manager
               </a>{' '}
