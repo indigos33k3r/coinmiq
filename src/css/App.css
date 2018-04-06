@@ -21,7 +21,7 @@
 
 .Aligner-item--fixed {
   flex: none;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .Aligner-item--fixed2 {
