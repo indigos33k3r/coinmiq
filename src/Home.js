@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-  Jumbotron
-} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Jumbotron } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
 import About from './About.js';
 import GetMiner from './GetMiner.js';
@@ -36,6 +28,17 @@ class Home extends Component {
     this.setState({
       wallet: 'NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7'
     });
+  };
+
+  newWallet = value => {
+    window.open('https://nimiq-testnet.com', '_blank');
+  };
+
+  checkBalance = value => {
+    window.open(
+      'https://nimiq.watch/#' + this.state.wallet.split(' ').join('+'),
+      '_blank'
+    );
   };
 
   componentDidMount(prevProps) {
@@ -68,7 +71,7 @@ class Home extends Component {
   }
 
   render() {
-    let form = (
+    const form = (
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
           <Label for="exampleEmail">Wallet Address</Label>
@@ -81,33 +84,47 @@ class Home extends Component {
             onChange={this.handleInputChange}
             size="100"
           />
-          <Button color="primary" size="sm" onClick={this.loadExample}>
-            example address
+          <Button color="info" size="sm" onClick={this.loadExample}>
+            Example wallet
           </Button>
-          &nbsp;<small>
-            <a
-              href="https://nimiq-testnet.com"
-              target="_blank"
-              className="float-right"
-            >
-              create a new wallet
-            </a>
-          </small>&nbsp;
-          <br />
-          <br />
-          <FormText color="white">
-            Your mining reward will be sent to the{' '}
-            <a href="http://www.nimiq.com">Nimiq</a> wallet address specified
-            above.{' '}
-          </FormText>
+          &nbsp;
+          <Button color="info" size="sm" onClick={this.newWallet}>
+            New wallet
+          </Button>
         </FormGroup>
-        <Button color="warning" size="lg">
-          Mine
+        <Button color="primary" size="lg" block>
+          Start Mining!
         </Button>
       </Form>
     );
 
-    let title = (
+    const wallet = this.state.wallet;
+    const askToMine = this.state.doMining ? (
+      <div>
+        <CoinmiqMiner
+          address={wallet}
+          width="auto"
+          height="auto"
+          autoStart={true}
+          displayMode="compact"
+          border={true}
+        />
+        <Button color="info" size="sm" onClick={this.checkBalance}>
+          Check balance
+        </Button>
+      </div>
+    ) : (
+      <div>
+        <hr className="my-2" />
+        <p>
+          <strong>Try it now.</strong>
+        </p>
+        <p>Enter a wallet address below to mine.</p>
+        <p className="lead">{form}</p>
+      </div>
+    );
+
+    const jumbotron = (
       <div>
         <Jumbotron>
           <img
@@ -123,7 +140,7 @@ class Home extends Component {
             in exchange of contents on your site.
           </p>
           <p>
-            <strong>Cryptocurrency Mining</strong>
+            <strong>What is cryptocurrency mining?</strong>
           </p>
           <p>
             A cryptocurrency is a digital or virtual currency that uses
@@ -134,56 +151,22 @@ class Home extends Component {
             help to secure consensus and contribute to the strength of the
             network. In return, you receive mining rewards.
           </p>
-
-          <hr className="my-2" />
-          <p>
-            Try it yourself below by entering a wallet address to mine to
-            (alternatively you can also create a new wallet by clicking the link
-            below.
-          </p>
-          <p className="lead">{form}</p>
+          {askToMine}
         </Jumbotron>
       </div>
     );
 
-    if (this.state.doMining) {
-      let wallet = this.state.wallet;
-      let encodedWallet = 'https://nimiq.watch/#' + wallet.split(' ').join('+');
-      window.scrollTo(0, 0);
-      return (
-        <div>
-          <div className="Aligner">
-            <div className="Aligner-item--fixed">
-              <CoinmiqMiner
-                address={wallet}
-                width="auto"
-                height="auto"
-                autoStart={true}
-                displayMode="full"
-                border={false}
-              />
-            </div>
-          </div>
-          <div className="Aligner">
-            <div className="Aligner-item--fixed2">
-              <a href={encodedWallet} target="_blank">
-                Check Balance
-              </a>
-            </div>
-          </div>
-        </div>
-      );
-    } else {
-      return (
+    return (
+      <div>
         <div className="Aligner">
           <div className="Aligner-item--fixed">
-            {title}
+            {jumbotron}
             <About />
             <GetMiner />
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

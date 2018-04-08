@@ -39,11 +39,19 @@ class MyHeader extends Component {
     });
   }
 
+  reloadPage = value => {
+    window.location.reload();
+  };
+
   render() {
     return (
       <Navbar color="light" light expand>
         <Link to="/">
-          <img src={logo_inverse_small} alt="My logo" />
+          <img
+            src={logo_inverse_small}
+            alt="My logo"
+            onClick={this.reloadPage}
+          />
         </Link>
         <Nav pills>
           <NavItem>

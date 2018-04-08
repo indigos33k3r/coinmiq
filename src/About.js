@@ -34,48 +34,20 @@ class About extends Component {
               crypto-currencies, users can now "pay" you with full privacy
               directly from their browser – with a click of a button.
             </CardText>
-            <CardText>
-              Due to the nature of the blockchain technology that we use, mining
-              is performed in a completely decentralised manner (there is no
-              central server). At the moment, the miner only supports solo
-              mining in the Testnet, but we will implement pooled mining when it
-              is released in 2018.
-            </CardText>
             <CardTitle>News</CardTitle>
             <ul>
               <li>
                 <em>6 April 2018</em>:
                 <ul>
                   <li>
-                    New website design. React plugin updates to work with the
+                    New website design. React plugin updates to work with Nimiq
                     mainnet release candidate.
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <em>31 January 2018</em>:
-                <ul>
-                  <li>
-                    Website improvement. Mainnet release could be coming anytime
-                    soon! Wait for it.
                   </li>
                 </ul>
               </li>
               <li>
                 <em>07 January 2018</em>:
                 <ul>
-                  <li>
-                    Fixed a small bug with initialisating the number of threads
-                    for the miner component. Now you should see the same
-                    hashrate from Coinmiq miner and the{' '}
-                    <a href="https://www.nimiq.com/miner" target="_blank">
-                      Luna Testnet miner
-                    </a>.
-                  </li>
-                  <li>
-                    The Nimiq dev team said that pooled mining support will be
-                    coming soon.
-                  </li>
                   <li>
                     We have implemented a new feature: Proof-of-Work (PoW){' '}
                     <a

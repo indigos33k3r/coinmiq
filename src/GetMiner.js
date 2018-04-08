@@ -73,7 +73,7 @@ class GetMiner extends Component {
                 <strong>address</strong>: Required. Must be a valid Nimiq wallet
                 address in user-friendly format, e.g. `NQ32 VGUP 1GQM J8YL 1QNS
                 RYU8 CUUB XG35 A1Q7` (with the spaces). This can be created from{' '}
-                <a href="http://www.nimiq.com/miner" target="_blank">
+                <a href="https://nimiq-testnet.com" target="_blank">
                   any wallet app
                 </a>{' '}
                 for the Nimiq blockchain.
