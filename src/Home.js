@@ -5,7 +5,7 @@ import CoinmiqMiner from 'react-coinmiq-miner';
 import About from './About.js';
 import GetMiner from './GetMiner.js';
 
-import logo_inverse_small from './images/main-mascot.92509dbd.png';
+import logo_inverse_small from './images/coinmiq1.svg';
 
 import './css/App.css';
 
@@ -131,6 +131,7 @@ class Home extends Component {
             className="LogoCenter img-fluid"
             src={logo_inverse_small}
             alt="My logo"
+            width="40%"
           />
           <h3>Browser mining made easy.</h3>
           <p className="lead">
