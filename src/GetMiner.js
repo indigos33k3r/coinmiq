@@ -22,7 +22,7 @@ class GetMiner extends Component {
         render() {
             return (
                 <CoinmiqMiner
-                  address="NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7"
+                  address="NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
                   targetHash="500000"
                   width="260px"
                   height="auto"
@@ -71,9 +71,9 @@ class GetMiner extends Component {
             <ul>
               <li>
                 <strong>address</strong>: Required. Must be a valid Nimiq wallet
-                address in user-friendly format, e.g. `NQ32 VGUP 1GQM J8YL 1QNS
-                RYU8 CUUB XG35 A1Q7` (with the spaces). This can be created from{' '}
-                <a href="https://nimiq-testnet.com" target="_blank">
+                address in user-friendly format, e.g. `NQ04 3F73 CHG5 RCBH CDMM
+                MR5C RNJV 0N6J CXJR` (with the spaces). This can be created from{' '}
+                <a href="https://nimiq.com" target="_blank">
                   any wallet app
                 </a>{' '}
                 for the Nimiq blockchain.

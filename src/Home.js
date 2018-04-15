@@ -26,12 +26,12 @@ class Home extends Component {
 
   loadExample = value => {
     this.setState({
-      wallet: 'NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7'
+      wallet: 'NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR'
     });
   };
 
   newWallet = value => {
-    window.open('https://nimiq-testnet.com', '_blank');
+    window.open('https://nimiq.com', '_blank');
   };
 
   checkBalance = value => {
@@ -79,7 +79,7 @@ class Home extends Component {
             type="wallet"
             name="wallet"
             id="wallet"
-            placeholder="e.g. NQ27 RC5B 9E5A S09M 95LQ G3N4 LHQ0 U9DX EDKM"
+            placeholder="e.g. NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
             value={this.state.wallet}
             onChange={this.handleInputChange}
             size="100"

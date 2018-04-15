@@ -91,12 +91,8 @@ class PowMine extends Component {
           <p>
             <strong>Important:</strong>{' '}
             <em>
-              You are connecting to the{' '}
-              <a href="https://nimiq-testnet.com" target="_blank">
-                Nimiq Testnet
-              </a>. Testnet mining DOES NOT create permanent coins. The balance
-              of your coins may be reset at any time. Note that mining on mobile
-              devices drains your battery.
+              Note that mining on mobile devices for a long time may drain your
+              battery.
             </em>
           </p>
         </CardBody>

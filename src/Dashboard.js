@@ -48,7 +48,7 @@ class About extends Component {
               Due to the nature of the blockchain technology that we use, mining
               is performed in a completely decentralised manner (there is no
               central server). At the moment, the miner only supports solo
-              mining in the Testnet, but we will implement pooled mining when it
+              mining in the mainnet, but we will implement pooled mining when it
               is released in Q1 2018.
             </CardText>
             <CardTitle>News</CardTitle>
@@ -65,18 +65,6 @@ class About extends Component {
               <li>
                 <em>07 January 2018</em>:
                 <ul>
-                  <li>
-                    Fixed a small bug with initialisating the number of threads
-                    for the miner component. Now you should see the same
-                    hashrate from Coinmiq miner and the{' '}
-                    <a href="https://www.nimiq.com/miner" target="_blank">
-                      Luna Testnet miner
-                    </a>.
-                  </li>
-                  <li>
-                    The Nimiq dev team said that pooled mining support will be
-                    coming soon.
-                  </li>
                   <li>
                     We have implemented a new feature: Proof-of-Work (PoW){' '}
                     <a

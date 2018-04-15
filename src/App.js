@@ -79,8 +79,8 @@ class MyHeader extends Component {
                 </a>
               </div>
               <div>
-                <a className="dropdown" href="https://nimiq-testnet.com/">
-                  Testnet
+                <a className="dropdown" href="https://nimiq.com/">
+                  Mainnet
                 </a>
               </div>
               <div>

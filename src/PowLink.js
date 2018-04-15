@@ -165,7 +165,7 @@ class PowLink extends Component {
                 </Button>
                 &nbsp;<small>
                   <a
-                    href="https://nimiq-testnet.com"
+                    href="https://nimiq.com"
                     target="_blank"
                     className="float-right"
                   >
