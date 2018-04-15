@@ -131,7 +131,7 @@ class Home extends Component {
             className="LogoCenter img-fluid"
             src={logo_inverse_small}
             alt="My logo"
-            width="40%"
+            width="60%"
           />
           <h3>Browser mining made easy.</h3>
           <p className="lead">
