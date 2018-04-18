@@ -55,8 +55,8 @@ class MyHeader extends Component {
         </Link>
         <Nav pills>
           <NavItem>
-            <NavLink>
-              <Link to="/coin">[Coin]</Link>
+            <NavLink tag={Link} to="/coin">
+              [Coin]
             </NavLink>
           </NavItem>
           <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>

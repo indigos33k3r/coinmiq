@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Button, Form, FormGroup, Label, Input, Jumbotron } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
 import About from './About.js';
 import GetMiner from './GetMiner.js';
@@ -116,43 +117,50 @@ class Home extends Component {
     ) : (
       <div>
         <hr className="my-2" />
-        <p>
-          <strong>Try it now.</strong>
-        </p>
-        <p>Enter a wallet address below to mine.</p>
-        <p className="lead">{form}</p>
+        {form}
       </div>
     );
 
     const jumbotron = (
       <div>
         <Jumbotron>
-          <img
-            className="LogoCenter img-fluid"
-            src={logo_inverse_small}
-            alt="My logo"
-            width="60%"
-          />
-          <h3>Browser mining made easy.</h3>
-          <p className="lead">
-            We provide a JavaScript miner that you can embed into your site.
-            There is nothing to install. Your users loads a page containing our
-            miner from their browser, and they mine for an ad-free experience or
-            in exchange of contents on your site.
-          </p>
-          <p>
-            <strong>What is cryptocurrency mining?</strong>
-          </p>
-          <p>
-            A cryptocurrency is a digital or virtual currency that uses
-            cryptography for security. Values in cryptocurrency is produced
-            through consensus of participants in the network. In cryptocurrency
-            networks, mining is the generation of cryptocurrency coins, as a
-            reward for validating transactions. By participating in mining, you
-            help to secure consensus and contribute to the strength of the
-            network. In return, you receive mining rewards.
-          </p>
-          {askToMine}
+          <Container fluid={true}>
+            <Row>
+              <Col xs="4">
+                <img
+                  className="LogoCenter img-fluid"
+                  src={logo_inverse_small}
+                  alt="My logo"
+                  width="100%"
+                />
+              </Col>
+              <Col xs="8">
+                <h3>Browser mining made easy.</h3>
+                <p className="lead">
+                  We provide a JavaScript miner that you can embed into your
+                  site. There is nothing to install. Your users loads a page
+                  containing our miner from their browser, and they mine for an
+                  ad-free experience or in exchange of contents on your site.
+                </p>
+                <p>
+                  <strong>What is cryptocurrency mining?</strong>
+                </p>
+                <p>
+                  A cryptocurrency is a digital or virtual currency that uses
+                  cryptography for security. Values in cryptocurrency is
+                  produced through consensus of participants in the network. In
+                  cryptocurrency networks, mining is the generation of
+                  cryptocurrency coins, as a reward for validating transactions.
+                  By participating in mining, you help to secure consensus and
+                  contribute to the strength of the network. In return, you
+                  receive mining rewards.
+                </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>{askToMine}</Col>
+            </Row>
+          </Container>
         </Jumbotron>
       </div>
     );
