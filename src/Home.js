@@ -6,8 +6,6 @@ import CoinmiqMiner from 'react-coinmiq-miner';
 import About from './About.js';
 import GetMiner from './GetMiner.js';
 
-import logo_inverse_small from './images/coinmiq1.svg';
-
 import './css/App.css';
 
 class Home extends Component {
@@ -107,7 +105,7 @@ class Home extends Component {
           width="auto"
           height="auto"
           autoStart={true}
-          displayMode="compact"
+          displayMode="full"
           border={true}
         />
         <Button color="info" size="sm" onClick={this.checkBalance}>
@@ -126,15 +124,7 @@ class Home extends Component {
         <Jumbotron>
           <Container fluid={true}>
             <Row>
-              <Col xs="4">
-                <img
-                  className="LogoCenter img-fluid"
-                  src={logo_inverse_small}
-                  alt="My logo"
-                  width="100%"
-                />
-              </Col>
-              <Col xs="8">
+              <Col>
                 <h3>Browser mining made easy.</h3>
                 <p className="lead">
                   We provide a JavaScript miner that you can embed into your
@@ -142,6 +132,10 @@ class Home extends Component {
                   containing our miner from their browser, and they mine for an
                   ad-free experience or in exchange of contents on your site.
                 </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
                 <p>
                   <strong>What is cryptocurrency mining?</strong>
                 </p>

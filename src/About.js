@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
-
 import './css/App.css';
 
 class About extends Component {
