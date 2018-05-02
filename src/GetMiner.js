@@ -23,6 +23,8 @@ class GetMiner extends Component {
             return (
                 <CoinmiqMiner
                   address="NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
+                  poolServer="eu.sushipool.com",
+                  poolPort=443,
                   targetHash="500000"
                   width="260px"
                   height="auto"
@@ -69,6 +71,19 @@ class GetMiner extends Component {
               The following are configurable properties of the miner:
             </CardText>
             <ul>
+              <li>
+                <strong>network</strong> specifies whether to mine in the 'main'
+                or the 'test' network. Defaults to main.
+              </li>
+              <li>
+                <strong>poolServer</strong>: The pool server to mine to. Must be
+                running the official Nimiq pool miner code. Defaults to
+                'eu.sushipool.com' if not specified.
+              </li>
+              <li>
+                <strong>poolPort</strong>: The pool port. Defaults to 443 if not
+                specified.
+              </li>
               <li>
                 <strong>address</strong>: Required. Must be a valid Nimiq wallet
                 address in user-friendly format, e.g. `NQ04 3F73 CHG5 RCBH CDMM

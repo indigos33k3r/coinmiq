@@ -9,7 +9,7 @@ Planned features:
 -----------------
 
 - [x] A widget to mine crypto (NIM) to any address that the user specifies. This has been published as [a reusable React component](http://www.github.com/joewandy/react-coinmiq-miner) that can be installed via ```npm```.
-- [ ] Mining pool support.
+- [X] Mining pool support.
 - [ ] Dashboard to monitor earnings.
 - [ ] Withdrawal of mined coins to Bitcoin/Ethereum/Monero (via shapeshift or cross-chain atomic transactions).
 

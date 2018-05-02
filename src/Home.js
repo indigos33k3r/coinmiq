@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
-import { Button, Form, FormGroup, Label, Input, Jumbotron } from 'reactstrap';
+import {
+  InputGroup,
+  InputGroupAddon,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Jumbotron
+} from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
 import About from './About.js';
@@ -15,19 +24,14 @@ class Home extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       popoverOpen: false,
-      wallet: '',
+      wallet: 'NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR',
+      poolServer: 'eu.sushipool.com',
+      poolPort: 443,
       doMining: false
     };
-    this.loadExample = this.loadExample.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  loadExample = value => {
-    this.setState({
-      wallet: 'NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR'
-    });
-  };
 
   newWallet = value => {
     window.open('https://nimiq.com', '_blank');
@@ -73,20 +77,40 @@ class Home extends Component {
     const form = (
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Label for="exampleEmail">Wallet Address</Label>
-          <Input
-            type="wallet"
-            name="wallet"
-            id="wallet"
-            placeholder="e.g. NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
-            value={this.state.wallet}
-            onChange={this.handleInputChange}
-            size="100"
-          />
-          <Button color="info" size="sm" onClick={this.loadExample}>
-            Example wallet
-          </Button>
-          &nbsp;
+          <Label>Wallet Address || Pool Server : Pool Port</Label>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <Input
+                type="text"
+                name="wallet"
+                id="wallet"
+                placeholder="NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
+                value={this.state.wallet}
+                onChange={this.handleInputChange}
+                size="100"
+              />
+            </InputGroupAddon>
+            <Input
+              type="text"
+              name="poolServer"
+              id="poolServer"
+              placeholder="eu.sushipool.com"
+              value={this.state.poolServer}
+              onChange={this.handleInputChange}
+              size="30"
+            />
+            <InputGroupAddon addonType="append">
+              <Input
+                type="text"
+                name="poolPort"
+                id="poolPort"
+                placeholder="443"
+                value={this.state.poolPort}
+                onChange={this.handleInputChange}
+                size="6"
+              />
+            </InputGroupAddon>
+          </InputGroup>
           <Button color="info" size="sm" onClick={this.newWallet}>
             New wallet
           </Button>

@@ -35,31 +35,22 @@ class About extends Component {
             </CardText>
             <CardTitle>News</CardTitle>
             <ul>
+              <li>Pool mining support.</li>
               <li>
-                <em>6 April 2018</em>:
-                <ul>
-                  <li>
-                    New website design. React plugin updates to work with Nimiq
-                    mainnet release candidate.
-                  </li>
-                </ul>
+                New website design. React plugin updates to work with Nimiq
+                mainnet release candidate.
               </li>
               <li>
-                <em>07 January 2018</em>:
-                <ul>
-                  <li>
-                    We have implemented a new feature: Proof-of-Work (PoW){' '}
-                    <a
-                      href="https://en.wikipedia.org/wiki/Proof-of-work_system"
-                      target="_blank"
-                    >
-                      [Wikipedia]
-                    </a>{' '}
-                    link. This lets you create sharable hyperlink to request
-                    other people to mine for you.&nbsp;
-                    <Link to="/createPowlink">Try here!</Link>
-                  </li>
-                </ul>
+                We have implemented a new feature: Proof-of-Work (PoW){' '}
+                <a
+                  href="https://en.wikipedia.org/wiki/Proof-of-work_system"
+                  target="_blank"
+                >
+                  [Wikipedia]
+                </a>{' '}
+                link. This lets you create sharable hyperlink to request other
+                people to mine for you.&nbsp;
+                <Link to="/createPowlink">Try here!</Link>
               </li>
             </ul>
           </CardBody>
