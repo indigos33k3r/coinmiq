@@ -24,9 +24,9 @@ class Home extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       popoverOpen: false,
-      wallet: 'NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR',
-      poolServer: 'eu.sushipool.com',
-      poolPort: 443,
+      wallet: '',
+      poolServer: '',
+      poolPort: '',
       doMining: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
