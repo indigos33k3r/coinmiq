@@ -165,13 +165,9 @@ class Home extends Component {
                 </p>
                 <p>
                   A cryptocurrency is a digital or virtual currency that uses
-                  cryptography for security. Values in cryptocurrency is
-                  produced through consensus of participants in the network. In
-                  cryptocurrency networks, mining is the generation of
-                  cryptocurrency coins, as a reward for validating transactions.
-                  By participating in mining, you help to secure consensus and
-                  contribute to the strength of the network. In return, you
-                  receive mining rewards.
+                  cryptography for security. By participating in cryptocurrency
+                  mining, you help to secure and contribute to the strength of
+                  the network. In return, you receive mining rewards.
                 </p>
               </Col>
             </Row>
