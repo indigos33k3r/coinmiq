@@ -25,8 +25,7 @@ class Home extends Component {
     this.state = {
       popoverOpen: false,
       wallet: '',
-      poolServer: '',
-      poolPort: '',
+      poolServer: 'eu.sushipool.com:443',
       doMining: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -77,43 +76,34 @@ class Home extends Component {
     const form = (
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <Label>Wallet Address || Pool Server : Pool Port</Label>
-          <InputGroup>
-            <InputGroupAddon addonType="prepend">
-              <Input
-                type="text"
-                name="wallet"
-                id="wallet"
-                placeholder="NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
-                value={this.state.wallet}
-                onChange={this.handleInputChange}
-                size="100"
-              />
-            </InputGroupAddon>
-            <Input
-              type="text"
-              name="poolServer"
-              id="poolServer"
-              placeholder="eu.sushipool.com"
-              value={this.state.poolServer}
-              onChange={this.handleInputChange}
-              size="30"
-            />
-            <InputGroupAddon addonType="append">
-              <Input
-                type="text"
-                name="poolPort"
-                id="poolPort"
-                placeholder="443"
-                value={this.state.poolPort}
-                onChange={this.handleInputChange}
-                size="6"
-              />
-            </InputGroupAddon>
-          </InputGroup>
+          <Label for="wallet">Wallet Address</Label>
+          <Input
+            type="text"
+            name="wallet"
+            id="wallet"
+            placeholder="NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
+            value={this.state.wallet}
+            onChange={this.handleInputChange}
+            size="100"
+          />
           <Button color="info" size="sm" onClick={this.newWallet}>
             New wallet
           </Button>
+        </FormGroup>
+        <FormGroup>
+          <Label for="poolServer">Pool Server</Label>
+          <Input
+            type="select"
+            name="poolServer"
+            id="poolServer"
+            value={this.state.poolServer}
+            onChange={this.handleInputChange}
+          >
+            <option>eu.sushipool.com:443</option>
+            <option>pool.nimpool.io:8443</option>
+            <option>pool.porkypool.com:8444</option>
+            <option>pool.bhlynd.nz:8444</option>
+          </Input>
         </FormGroup>
         <Button color="primary" size="lg" block>
           Start Mining!
@@ -122,6 +112,9 @@ class Home extends Component {
     );
 
     const wallet = this.state.wallet;
+    debugger;
+    const poolServer = this.state.poolServer.split(':')[0];
+    const poolPort = this.state.poolServer.split(':')[1];
     const askToMine = this.state.doMining ? (
       <div>
         <CoinmiqMiner
@@ -131,6 +124,8 @@ class Home extends Component {
           autoStart={true}
           displayMode="full"
           border={true}
+          poolServer={poolServer}
+          poolPort={poolPort}
         />
         <Button color="info" size="sm" onClick={this.checkBalance}>
           Check balance
