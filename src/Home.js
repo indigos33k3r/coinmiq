@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 
-import {
-  InputGroup,
-  InputGroupAddon,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Jumbotron
-} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Jumbotron } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import CoinmiqMiner from 'react-coinmiq-miner';
 import About from './About.js';
@@ -100,9 +91,8 @@ class Home extends Component {
             onChange={this.handleInputChange}
           >
             <option>eu.sushipool.com:443</option>
-            <option>pool.nimpool.io:8443</option>
             <option>pool.porkypool.com:8444</option>
-            <option>pool.bhlynd.nz:8444</option>
+            <option>pool.nimpool.io:8443</option>
           </Input>
         </FormGroup>
         <Button color="primary" size="lg" block>
@@ -112,7 +102,6 @@ class Home extends Component {
     );
 
     const wallet = this.state.wallet;
-    debugger;
     const poolServer = this.state.poolServer.split(':')[0];
     const poolPort = this.state.poolServer.split(':')[1];
     const askToMine = this.state.doMining ? (
