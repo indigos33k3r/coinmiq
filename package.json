@@ -14,7 +14,7 @@
         "prettier": "^1.9.2",
         "react": "^16.2.0",
         "react-bootstrap": "^0.31.5",
-        "react-coinmiq-miner": "^1.1.14",
+        "react-coinmiq-miner": "^1.1.15",
         "react-copy-to-clipboard": "^5.0.1",
         "react-dom": "^16.2.0",
         "react-fontawesome": "^1.6.1",
@@ -30,15 +30,8 @@
         "react-toggle-button": "^2.2.0",
         "reactstrap": "^5.0.0-alpha.4"
     },
-    "lint-staged": {
-        "src/**/*.{js,jsx,json,css}": [
-            "prettier --single-quote --write",
-            "git add"
-        ]
-    },
     "devDependencies": {},
     "scripts": {
-        "precommit": "lint-staged",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
