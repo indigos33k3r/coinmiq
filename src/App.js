@@ -69,7 +69,6 @@ class MyHeader extends Component {
                   Powlinks
                 </Link>
               </div>
-              <DropdownItem divider />
               <div>
                 <a
                   className="dropdown"
@@ -78,14 +77,20 @@ class MyHeader extends Component {
                   Github
                 </a>
               </div>
+              <DropdownItem divider />
               <div>
                 <a className="dropdown" href="https://nimiq.com/">
-                  Mainnet
+                  Nimiq Website
                 </a>
               </div>
               <div>
                 <a className="dropdown" href="https://nimiq.watch/">
-                  Block Explorer
+                  Nimiq Watch
+                </a>
+              </div>
+              <div>
+                <a className="dropdown" href="https://nimiq.mopsus.com/">
+                  Nimiq Mopsus
                 </a>
               </div>
             </DropdownMenu>

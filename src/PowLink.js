@@ -54,7 +54,7 @@ class PowLink extends Component {
 
   loadExample = value => {
     this.setState({
-      wallet: 'NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7'
+      wallet: 'NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR'
     });
   };
 
@@ -136,12 +136,12 @@ class PowLink extends Component {
           <div>
             <CardTitle className="PowLink">Create a Powlink</CardTitle>
             <CardText className="PowLink">
-              This screen lets you create a Proof-of-Work (PoW) link [<a href="http://coinmiq.com/mine/eyJ3YWxsZXQiOiJOUTMyIFZHVVAgMUdRTSBKOFlMIDFRTlMgUllVOCBDVVVCIFhHMzUgQTFRNyIsIm5hbWUiOiJjb2lubWlxIiwibm90ZSI6IlRoYW5rIHlvdSBmb3IgeW91ciBzdXBwb3J0IiwiaGFzaGVzIjo1MDAwMDB9">
+              This screen lets you create a Proof-of-Work (PoW) link [<a href="http://coinmiq.com/mine/eyJ3YWxsZXQiOiJOUTA0IDNGNzMgQ0hHNSBSQ0JIIENETU0gTVI1QyBSTkpWIDBONkogQ1hKUiIsIm5hbWUiOiJwb3JrYWNodSIsIm5vdGUiOiJJIHdpc2ggeW91IGFsbCB0aGUgYmVzdCBpbiBtZWV0aW5nIHRoZSBjcm93ZGZ1bmRpbmcgdGFyZ2V0LiBMb29raW5nIGZvcndhcmQgdG8gaXQuIEhvcGVmdWxseSBteSBoYXNocmF0ZSBjYW4gaGVscC4iLCJoYXNoZXMiOjUwMDAwMH0=">
                 example
               </a>]. Powlinks are sharable hyperlinks that you can send through
               emails, messaging apps or embed in your website. By clicking on
               the link and giving their consent, recipients of the link can mine
-              for you.
+              for you. By default, sharable links will mine to <a href="https://sushipool.com">SushiPool</a>.
             </CardText>
             <hr />
             <Form onSubmit={this.handleSubmit} className="PowLink">
@@ -151,7 +151,7 @@ class PowLink extends Component {
                   type="wallet"
                   name="wallet"
                   id="wallet"
-                  placeholder="e.g. NQ32 VGUP 1GQM J8YL 1QNS RYU8 CUUB XG35 A1Q7"
+                  placeholder="e.g. NQ04 3F73 CHG5 RCBH CDMM MR5C RNJV 0N6J CXJR"
                   value={this.state.wallet}
                   onChange={this.handleInputChange}
                 />
