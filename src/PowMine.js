@@ -70,17 +70,9 @@ class PowMine extends Component {
                     </div>
                     <CardText>
                         To begin mining, click the button below. You may leave
-                        the miner running as long as this page is open. During
-                        mining, the wallet address of the recipient will be
-                        credited with the appropriate reward depending on the
-                        hashrate and mining duration. To quit this process at
-                        any time, simply close this page.
+                        the miner running as long as this page is open. To quit, simply close this page.
                         To create your own sharable link,&nbsp;
                         <Link to="/createPowlink">click here</Link>.
-                    </CardText>
-                    <CardText>
-                        <strong>Important:</strong> Note that mining on mobile
-                        devices for a long time may drain your battery.
                     </CardText>
                 </CardBody>
             </Card>
