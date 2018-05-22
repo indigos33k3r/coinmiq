@@ -14,7 +14,7 @@
         "prettier": "^1.9.2",
         "react": "^16.2.0",
         "react-bootstrap": "^0.31.5",
-        "react-coinmiq-miner": "^1.1.17",
+        "react-coinmiq-miner": "^1.1.18",
         "react-copy-to-clipboard": "^5.0.1",
         "react-dom": "^16.2.0",
         "react-fontawesome": "^1.6.1",
